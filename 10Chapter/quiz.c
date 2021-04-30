@@ -34,7 +34,7 @@ void swap_ary(int* pa, int size)
 	int* px = pa;
 	int* py = pa + 9;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
 		temp = *(px + i);
 		*(px + i) = *(py - i);
