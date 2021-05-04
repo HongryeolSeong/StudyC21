@@ -26,15 +26,13 @@ void input_lotto(int* pl, int size)
 
 	while (i < size)
 	{
+		scanf("%d", &temp);
 		if (i == 0)
 		{
-			scanf("%d", &temp);
-			*(pl + i) = temp;
+			flag = 1;
 		}
 		else if (i > 0)
 		{
-			scanf("%d", &temp);
-
 			for (j = 0; j < i; j++)
 			{
 				if (temp == pl[j])
