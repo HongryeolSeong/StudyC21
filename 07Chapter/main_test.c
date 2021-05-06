@@ -4,7 +4,7 @@ int main(int argc, char* argv[])
 {
 	int i;
 
-	printf("ÀÔ·Â °¹¼ö : %d", argc);
+	printf("ÀÔ·Â °¹¼ö : %d\n", argc);
 
 	for (i = 0; i < argc; i++)
 	{

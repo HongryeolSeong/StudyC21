@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="arry.c" />
+    <ClCompile Include="quiz.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{888fb01a-0ee4-4b2a-99d2-83fae608b1f6}</ProjectGuid>
-    <RootNamespace>My08Chapter</RootNamespace>
+    <ProjectGuid>{e7473fb2-19ec-4a72-b132-c01516766ae1}</ProjectGuid>
+    <RootNamespace>My15Chapter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

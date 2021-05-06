@@ -15,7 +15,7 @@ int main()
 		printf("테스트할 단어를 입력하시오. : ");
 		scanf("%s", str);
 		size = strlen(str);
-		printf("%d\n", size);
+		printf("배열사이즈는 : %d\n", size);
 
 		char* pa = str;
 		char* pb = str + (size - 1);
