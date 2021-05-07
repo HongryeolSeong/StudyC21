@@ -46,7 +46,7 @@ int main(void)
 	
 	return 0;
 }
-```<br>
+```
 
 ## Chapter_4 연산자
 
