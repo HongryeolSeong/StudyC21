@@ -20,3 +20,7 @@ PKNU C언어 학습 리포지토리
 <br>
 문자열 저장 : char 배열명[문자열길이 + 1] = 문자열;<br>
 -> 한 번 선언된 후 대입연산으로 문자열 대입 불가<br>
+<br>
+상수 지정 : const 자료형 변수명 = 값;<br>
+<br>
+입력함수 : scanf -> #define _CRT_SECURE_NO_WARNINGS 필수<br>
