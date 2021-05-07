@@ -27,6 +27,7 @@ PKNU C언어 학습 리포지토리
 -> #define _CRT_SECURE_NO_WARNINGS 필수<br>
 -> 배열 입력시 &붙이지 말 것<br>
 <br>
+3장 퀴즈<br>
 ```
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -47,3 +48,4 @@ int main(void)
 	return 0;
 }
 ```
+
