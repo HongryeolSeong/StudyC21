@@ -26,3 +26,24 @@ PKNU C언어 학습 리포지토리
 입력함수 : scanf<br>
 -> #define _CRT_SECURE_NO_WARNINGS 필수<br>
 -> 배열 입력시 &붙이지 말 것<br>
+<br>
+```
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	int a;
+	char b;
+
+	//정수 다음 문자를 입력받는경우
+	printf("정수 하나를 입력하세요 : ");
+	scanf("%d", &a);
+	printf("문자 하나를 입력하세요 : ");
+	scanf(" %c", &b); // or getchar(); 쓸 것.
+
+	printf("입력된 값은 %d, %c 입니다.\n", a, b);
+	
+	return 0;
+}
+```
