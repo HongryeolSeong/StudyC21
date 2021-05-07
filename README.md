@@ -26,8 +26,8 @@ PKNU C언어 학습 리포지토리
 입력함수 : scanf<br>
 -> 배열 입력시 &붙이지 말 것<br>
 <br>
-3장 퀴즈<br>
-정수 다음 바로 문자 입력해야할 경우<br>
+_3장 퀴즈<br>
+정수 다음 바로 문자 입력해야할 경우_<br>
 ```
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
