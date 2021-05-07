@@ -58,4 +58,4 @@ int main(void)
 형변환 연산자 : (자료형)피연산자<br>
 크기 연산자 : sizeof<br>
 복합대입 연산자 : +=, -=, *=, /=, %=<br>
-조건 연산자 : res = (a > b) ? a : b; <span style="color:green">// 삼항 연산자라고도 함</span>
+조건 연산자 : res = (a > b) ? a : b; <span style="color:green">// 삼항 연산자라고도 함</span><br>
