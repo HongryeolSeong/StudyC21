@@ -23,6 +23,7 @@ PKNU C언어 학습 리포지토리
 상수 지정 : const 자료형 변수명 = 값;<br>
 <br>
 입력함수 : scanf<br>
+-> #define _CRT_SECURE_NO_WARNINGS 맨 위에 필수로 사용할 것<br>
 -> 배열 입력시 &붙이지 말 것<br>
 <br>
 _3장 퀴즈<br>
