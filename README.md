@@ -589,6 +589,79 @@ void print_ary(int* pa, int size)
 }
 ```
 ![결과5](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B1%B0%EA%BE%B8%EB%A1%9C.png "거꾸로출력")
+   
+_10장 퀴즈2   
+중복된 번호는 입력불가한 로또 배열_
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void input_lotto(int* pl, int size);
+void print_lotto(int* pl, int size);
+
+int main()
+{
+	int lotto[6];
+	int size = sizeof(lotto) / sizeof(lotto[0]);
+
+	input_lotto(lotto, size);
+	printf("\n");
+	print_lotto(lotto, size);
+
+	return 0;
+}
+
+void input_lotto(int* pl, int size)
+{
+	int flag = 0;
+	int i = 0;
+	int j;
+	int temp;
+
+
+	while (i < size)
+	{
+		printf("로또 번호 입력 : ");
+		scanf("%d", &temp);
+		if (i == 0)
+		{
+			flag = 1;
+		}
+		else if (i > 0)
+		{
+			for (j = 0; j < i; j++)
+			{
+				if (temp == pl[j])
+				{
+					printf("중복된 숫자를 입력하지 마시오.\n");
+					flag = -1; // 중복된 숫자가 있다는 플래그
+					break; // for문을 탈출하여 해당 순서의 번호 입력으로 다시 돌아감
+				}
+				flag = 1; // 중복된 숫자가 없다는 플래그
+			}
+		}
+
+		if (flag > 0) // 중복된 숫자 없는경우 로또 배열에 번호 입력
+		{
+			*(pl + i) = temp;
+			i++;
+		}
+	}
+}
+
+void print_lotto(int* pl, int size)
+{
+	int i;
+
+	printf("로또 번호 출력\n");
+
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", *(pl + i));
+	}
+}
+```
+
 
 ## Chapter_11 문자🎯
 
@@ -659,11 +732,14 @@ fputs
 * fputs(str, stdout);
 * puts와 달리 자동 개행 함수
    
-strcpy
-* strcpy(str2, str1);
-   
-strncpy
-* strncpy(str, 복사할 문자열, 원하는 문자 갯수);
+strcpy, strncpy
+* strcpy(str2, str1);, strncpy(str, 복사할 문자열, 원하는 문자 갯수);
    
 strcat, strncat
 * strcat(str, 붙일 문자열);, strncat(str, 붙일 문자열, 원하는 문자 갯수);
+   
+strlen
+* strlen(str); 문자열의 길이 측정.
+   
+strcmp, strncmp
+* strcmp(str1, str2);, strncmp(str1, str2, 비교할 문자 갯수);
