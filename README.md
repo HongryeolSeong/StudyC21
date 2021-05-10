@@ -921,7 +921,7 @@ int main()
 	return 0;
 }
 ```
-![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "총합평균")   
+![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EC%B4%9D%ED%95%A9%ED%8F%89%EA%B7%A0.png "총합평균")   
 
 포인터 배열 : 포인터 또한 변수이므로 그 포인터를 여러개 가진 배열도 만들 수 있다.   
 ```C
@@ -1023,7 +1023,7 @@ int main()
 	return 0;
 }
 ```
-![결과10](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "회문")
+![결과10](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "회문")
 <br>
 <br>
 <br>
