@@ -863,6 +863,7 @@ int score[2][3][4] = {
 char animal[][10] = { "dog", "tiger", "rabbit", "horse", "cat" };
 ```
 <br>
+
 _예제) 5명 학생의 총합과 평균 그리고 4개 과목의 총합과 평균_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
