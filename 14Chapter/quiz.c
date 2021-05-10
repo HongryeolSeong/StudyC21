@@ -43,6 +43,7 @@ int main()
 		{
 			printf("이 단어는 회문입니다!!!\n");
 		}
+		printf("\n");
 	}
 
 	return 0;
