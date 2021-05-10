@@ -834,5 +834,4 @@ void my_gets(char* ps)
 <br>
 <br>
 
-
 ## Chapter_14 다차원 배열과 포인터 🎯
