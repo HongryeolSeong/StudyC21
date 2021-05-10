@@ -328,6 +328,7 @@ int main()
 3. 입력이 있는 함수 작성 : void func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; }   
 4. 입출력이 있는 함수 작성 : 반환타입 func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; return 반환할 변수; }   
 
+---
 _7장 퀴즈
 여러 함수를 활용한 계산기_   
 ```C
@@ -459,3 +460,6 @@ int value2()
 }
 ```
 ![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
+
+## Chapter_8 배열
+
