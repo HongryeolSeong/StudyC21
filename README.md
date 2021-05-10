@@ -588,6 +588,7 @@ void print_ary(int* pa, int size)
 	}
 }
 ```
+![결과5](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B1%B0%EA%BE%B8%EB%A1%9C.png "거꾸로출력")
 
 ## Chapter_11 문자
 
