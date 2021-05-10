@@ -25,6 +25,7 @@ int main()
 			printf("오류 : 영문자를 입력하세요.\n");
 		}
 		printf("\n");
+		printf("\n");
 	}
 
 	
