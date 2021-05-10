@@ -10,12 +10,11 @@ int main()
 
 	for (i = 0; i < 3; i++)
 	{
-		for (j = 0; j < 10; j++)
+		for (j = 0; j < 4; j++)
 		{
 			printf("%5d", pary[i][j]);
 		}
 		printf("\n");
 	}
-	printf("%5d", pary[2][2]);
 	return 0;
 }
