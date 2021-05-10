@@ -6,13 +6,13 @@ PKNU C언어 학습 리포지토리
 
 기본적인 visual studio 구동 및 프로젝트 생성
 
-## Chapter_2 상수와 데이터 출력
+## Chapter_2 상수와 데이터 출력🎯
 
 출력함수 : printf<br>
 제어문자 : \n 개행, \b 백스페이스, \r 맨앞으로 이동, \a 벨소리<br>
 변환문자 : %d 정수, %lf 실수, %c 문자, %s 문자열, %u 부호없는 10진수<br>
 
-## Chapter_3 변수와 데이터 입력
+## Chapter_3 변수와 데이터 입력🎯
 
 정수 자료형 : char 1바이트, short 2바이트, int 4바이트, long 4바이트, long long 8바이트<br>
 실수 자료형 : float 4바이트, double 8바이트<br>
@@ -50,7 +50,7 @@ int main(void)
 }
 ```
 
-## Chapter_4 연산자
+## Chapter_4 연산자🎯
 
 산술 연산자 : +, -, *, /, %<br>
 대입 연산자 : =<br>
@@ -62,7 +62,7 @@ int main(void)
 복합대입 연산자 : +=, -=, *=, /=, %=<br>
 조건 연산자 : res = (a > b) ? a : b; <span style="color:green">// 삼항 연산자라고도 함</span><br>
 
-## Chapter_5 선택문
+## Chapter_5 선택문🎯
 
 if (조건식) { 실행문; }<br>
 else if (조건식) { 실행문; }<br>
@@ -179,7 +179,7 @@ int main()
 }
 ```
 
-## Chapter_6 반복문
+## Chapter_6 반복문🎯
 
 while(조건식) { 실행문; }<br>
 for ( 초기식; 조건식; 증감식 ) { 실행문; }<br>
@@ -320,7 +320,7 @@ int main()
 ![결과3](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B3%84%EC%82%B0%EA%B8%B0.png "계산기")
 
 
-## Chapter_7 함수
+## Chapter_7 함수🎯
 
 함수 작성 종류<br>
 1. 메인 함수에 작성   
@@ -461,7 +461,7 @@ int value2()
 ```
 ![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
 
-## Chapter_8 배열
+## Chapter_8 배열🎯
 
 정수형 : int ary[5] = { 초기화할 값 };   
 문자형 : char str[80] = { 'a', 'b' }; or "ab";   
@@ -470,7 +470,7 @@ int value2()
 * gets() : Enter입력 전까지 모든 문자를 문자열에 저장하는 함수   
 * puts() : 문자열 출력 함수. 자동 개행 기능을 가짐   
 
-## Chapter_9 포인터
+## Chapter_9 포인터🎯
 
 변수의 주소 : ex) int a;의 경우 &a는 a의 시작 주소 값   
 그 주소를 담는 포인터
@@ -516,7 +516,7 @@ void swap(int* pa, int* pb)
 ```
 _위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는다._   
 
-## Chapter_10 배열과 포인터
+## Chapter_10 배열과 포인터🎯
 
 컴파일러는 배열명을 배열의 첫 번째 요소의 주소로 변경한다   
 배열명처럼 사용되는 포인터   
@@ -590,7 +590,7 @@ void print_ary(int* pa, int size)
 ```
 ![결과5](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B1%B0%EA%BE%B8%EB%A1%9C.png "거꾸로출력")
 
-## Chapter_11 문자
+## Chapter_11 문자🎯
 
 'a'로 입력된 문자 a는 컴파일을 통해 아스키 코드 값으로 바뀐다   
 그러므로 'a' - 65와 같은 연산 가능   
@@ -603,5 +603,5 @@ scanf의 경우 모든 자료형을 입력받을 수 있으므로 무거움
 -> 문자만 입출력하는 경우 전용 함수(ch = getchar();, putchar(ch);) 사용시 효율적.   
 --> getchar의 경우 getchar();만 사용시 개행문자를 제거하는 기능이 있다   
 
-## Chapter_12 문자열
+## Chapter_12 문자열🎯
 
