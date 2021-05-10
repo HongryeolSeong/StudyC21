@@ -834,7 +834,7 @@ void my_gets(char* ps)
 <br>
 <br>
 
-## Chapter_14 다차원 배열과 포인터 🎯
+## Chapter_14 다차원 배열과 포인터🎯
 
 1차원 배열 : int str[5];   
 2차원 배열 : int str[4][5];   
@@ -908,3 +908,8 @@ int main()
 	return 0;
 }
 ```
+![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "2차원배열")
+<br>
+<br>
+
+## Chapter_15 응용 포인터🎯
