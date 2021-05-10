@@ -25,7 +25,8 @@ PKNU C언어 학습 리포지토리
 입력함수 : scanf<br>
 -> #define _CRT_SECURE_NO_WARNINGS 맨 위에 필수로 사용할 것<br>
 -> 배열 입력시 &붙이지 말 것<br>
-<br>
+
+---
 _3장 퀴즈<br>
 정수 다음 바로 문자 입력해야할 경우_<br>
 ```C
@@ -74,7 +75,8 @@ case 변수의 값:<br>
 default:<br>
    실행문;<br>
    break;<br>
-<br>
+
+---
 _5장 퀴즈<br>
 if와 switch를 활용한 계산기_<br>
 ```C
@@ -121,6 +123,7 @@ int main()
 	return 0;
 }
 ```
+---
 _Calculator_switch는 나누기 연산의 경우 제수(divisor)가 0이 되지 않도록 구현하였다._
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -182,7 +185,9 @@ while(조건식) { 실행문; }<br>
 for ( 초기식; 조건식; 증감식 ) { 실행문; }<br>
 do { 실행문; } while (조건식);<br>
 
-_구구단_
+---
+_6장 퀴즈<br>
+구구단_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -211,7 +216,7 @@ int main()
 }
 ```
 ![결과1](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B5%AC%EA%B5%AC%EB%8B%A8.png "구구단")
-
+---
 _중복for문 활용한 피라미드 모양 출력_
 ```C
 #include <stdio.h>
@@ -236,7 +241,8 @@ int main()
 	return 0;
 }
 ```
-
+![결과2](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%94%BC%EB%9D%BC%EB%AF%B8%EB%93%9C.png "피라미드")
+---
 _종료기능이 있는 무한반복 계산기_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -309,5 +315,146 @@ int main()
 	}
 
 	return 0;
+}
+```
+![결과3](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B3%84%EC%82%B0%EA%B8%B0.png "계산기")
+
+
+## Chapter_7 함수
+
+함수 작성 종류<br>
+1. 메인 함수에 작성   
+2. 입출력이 없는 함수 작성 : void func() { 실행문; }   
+3. 입력이 있는 함수 작성 : void func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; }   
+4. 입출력이 있는 함수 작성 : 반환타입 func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; return 반환할 변수; }   
+
+_7장 퀴즈
+여러 함수를 활용한 계산기_   
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int sum();
+int minus();
+int multi();
+int divi();
+int value1();
+int value2();
+
+int main()
+{
+	int res;
+	char cal;
+
+	while (1)
+	{
+		printf("원하는 메뉴 선택하세요.");
+		scanf(" %c", &cal);
+
+		switch (cal)
+		{
+		case '+':
+			res = sum();
+			printf("결과는 : %d", res);
+			break;
+		case '-':
+			res = minus();
+			printf("결과는 : %d", res);
+			break;
+		case '*':
+			res = multi();
+			printf("결과는 : %d", res);
+			break;
+		case '/':
+			res = divi();
+			printf("결과는 : %d", res);
+			break;
+		case 'q':
+			exit(1);
+		default:
+			break;
+		}
+
+		printf("\n");
+		printf("\n");
+	}
+
+	return 0;
+}
+
+int sum()
+{
+	int a, b, res;
+
+	a = value1();
+	b = value2();
+
+	res = a + b;
+
+	return res;
+}
+
+int minus()
+{
+	int a, b, res;
+
+	a = value1();
+	b = value2();
+
+	res = a - b;
+
+	return res;
+}
+
+int multi()
+{
+	int a, b, res;
+
+	a = value1();
+	b = value2();
+
+	res = a * b;
+
+	return res;
+}
+
+int divi()
+{
+	int a, b;
+	int res = 0;
+
+	a = value1();
+	b = value2();
+
+	if (b == 0)
+	{
+		printf("나누는 수는 0이 되면 안됩니다.\n");
+	}
+	else
+	{
+		res = a / b;
+	}
+
+	return res;
+}
+
+int value1()
+{
+	int a;
+
+	printf("첫 번째 숫자를 입력하세요 : ");
+	scanf("%d", &a);
+		
+	return a;
+}
+
+int value2()
+{
+	int b;
+	
+	printf("두 번째 숫자를 입력하세요 : ");
+	scanf("%d", &b);
+
+	return b;
 }
 ```
