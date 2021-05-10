@@ -603,5 +603,44 @@ scanf의 경우 모든 자료형을 입력받을 수 있으므로 무거움
 -> 문자만 입출력하는 경우 전용 함수(ch = getchar();, putchar(ch);) 사용시 효율적.   
 --> getchar의 경우 getchar();만 사용시 개행문자를 제거하는 기능이 있다   
 
+_11장 퀴즈   
+대소문자 변환_   
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	char ch1, ch2;
+	
+	while (1)
+	{
+		printf("영문자 하나 입력하세요 : ");
+		scanf(" %c", &ch1);
+
+		if (ch1 >= 'a' && ch1 <= 'z')
+		{
+			ch2 = ch1 - 32;
+			printf("대문자 변환 결과는 : %c", ch2);
+		}
+		else if (ch1 >= 'A' && ch1 <= 'Z')
+		{
+			ch2 = ch1 + 32;
+			printf("소문자 변환 결과는 : %c", ch2);
+		}
+		else
+		{
+			printf("오류 : 영문자를 입력하세요.\n");
+		}
+		printf("\n");
+	}
+
+	
+
+	return 0;
+}
+```
+
 ## Chapter_12 문자열🎯
 
+배열과 마찬가지로 문자열은 문자열의 첫 문자가 시작하는 주소와 같다.   
