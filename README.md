@@ -329,7 +329,7 @@ int main()
 4. 입출력이 있는 함수 작성 : 반환타입 func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; return 반환할 변수; }   
 
 ---
-_7장 퀴즈
+_7장 퀴즈   
 여러 함수를 활용한 계산기_   
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -462,4 +462,13 @@ int value2()
 ![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
 
 ## Chapter_8 배열
+
+정수형 : int ary[5] = { 초기화할 값 };   
+문자형 : char str[80] = { 'a', 'b' }; or "ab";   
+* 문자열의 마지막 요소는 무조건 '\0'
+* 문자형은 한 번 초기화 후 변경시 strcpy() 사용해야함.   
+* gets() : Enter입력 전까지 모든 문자를 문자열에 저장하는 함수   
+* puts() : 문자열 출력 함수. 자동 개행 기능을 가짐   
+
+## Chapter_9 포인터
 
