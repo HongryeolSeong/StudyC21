@@ -72,7 +72,7 @@ int valid()
     int i = 0;
     char check = "";
 
-    printf("끝내시겠습니까?");
+    printf("끝내시겠습니까? ");
     scanf(" %c", &check);
 
     if (check == 'y')
@@ -88,6 +88,7 @@ int valid()
         printf("y 또는 n을 입력하세요.\n");
         valid();
     }
+    printf("\n");
 
     return i;
 }
