@@ -121,6 +121,7 @@ int main()
 	return 0;
 }
 ```
+---
 _Calculator_switch는 나누기 연산의 경우 제수(divisor)가 0이 되지 않도록 구현하였다._
 ```C
 #define _CRT_SECURE_NO_WARNINGS
