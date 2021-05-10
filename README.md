@@ -69,11 +69,11 @@ else { 실행문; }<br>
 <br>
 switch (변수)<br>
 case 변수의 값:<br>
-	실행문;<br>
-	break;<br>
+   실행문;<br>
+   break;<br>
 default:<br>
-	실행문;<br>
-	break;<br>
+   실행문;<br>
+   break;<br>
 <br>
 _5장 퀴즈<br>
 if와 switch를 활용한 계산기_<br>
