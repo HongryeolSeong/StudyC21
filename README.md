@@ -862,3 +862,5 @@ int score[2][3][4] = {
 ```C
 char animal[][10] = { "dog", "tiger", "rabbit", "horse", "cat" };
 ```
+<br>
+
