@@ -597,4 +597,11 @@ void print_ary(int* pa, int size)
    
 띄어쓰기와 엔터도 문자의 일종이므로(아스키 코드 값 가짐)   
 입력받을시 화이트 스페이스를 활용해야한다.   
-ex) scanf("%c%c", &ch1, &ch2); -> scanf(" %c %c", &ch1, &ch2);
+ex) scanf("%c%c", &ch1, &ch2); -> scanf(" %c %c", &ch1, &ch2);   
+   
+scanf의 경우 모든 자료형을 입력받을 수 있으므로 무거움   
+-> 문자만 입출력하는 경우 전용 함수(ch = getchar();, putchar(ch);) 사용시 효율적.   
+--> getchar의 경우 getchar();만 사용시 개행문자를 제거하는 기능이 있다   
+
+## Chapter_12 문자열
+
