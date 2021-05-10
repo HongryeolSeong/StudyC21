@@ -81,6 +81,7 @@ if와 switch를 활용한 계산기_<br>
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+// Calculator_if
 int main()
 {
 	int a, b, res;
@@ -124,6 +125,7 @@ int main()
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+// Calculator_switch
 int main()
 {
     int a, b, res;
