@@ -661,7 +661,7 @@ void print_lotto(int* pl, int size)
 	}
 }
 ```
-
+![결과6](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%A1%9C%EB%98%90.png "")
 
 ## Chapter_11 문자🎯
 
@@ -713,7 +713,7 @@ int main()
 	return 0;
 }
 ```
-![결과6](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90.png "대소문자")
+![결과7](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90.png "대소문자")
 
 ## Chapter_12 문자열🎯
 
