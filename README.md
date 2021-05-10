@@ -25,7 +25,7 @@ PKNU C언어 학습 리포지토리
 입력함수 : scanf<br>
 -> #define _CRT_SECURE_NO_WARNINGS 맨 위에 필수로 사용할 것<br>
 -> 배열 입력시 &붙이지 말 것<br>
-<br>
+
 ---
 _3장 퀴즈<br>
 정수 다음 바로 문자 입력해야할 경우_<br>
@@ -75,7 +75,7 @@ case 변수의 값:<br>
 default:<br>
    실행문;<br>
    break;<br>
-<br>
+
 ---
 _5장 퀴즈<br>
 if와 switch를 활용한 계산기_<br>
