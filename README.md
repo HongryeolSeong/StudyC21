@@ -28,7 +28,7 @@ PKNU C언어 학습 리포지토리
 <br>
 _3장 퀴즈<br>
 정수 다음 바로 문자 입력해야할 경우_<br>
-```
+```C
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -77,7 +77,7 @@ default:<br>
 <br>
 _5장 퀴즈<br>
 if와 switch를 활용한 계산기_<br>
-```
+```C
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -121,7 +121,8 @@ int main()
 	return 0;
 }
 ```
-```
+_Calculator_switch는 나누기 연산의 경우 제수(divisor)가 0이 되지 않도록 구현하였다._
+```C
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -174,4 +175,4 @@ int main()
     return 0;
 }
 ```
-Calculator_switch는 나누기 연산의 경우 제수(divisor)가 0이 되지 않도록 구현하였다.
+
