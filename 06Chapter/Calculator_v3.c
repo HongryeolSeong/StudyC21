@@ -19,8 +19,6 @@ int main()
 
         printf("두번째 수를 입력하세요 : ");
         scanf("%d", &b);
-        getchar();
-
 
         switch (cal)
         {
@@ -54,18 +52,19 @@ int main()
 
         printf("\n");
 
-        printf("끝낼래?");
+        printf("끝내시겠습니까? ");
         scanf(" %c", &check);
 
         if (check == 'y')
         {
-            break;
+            break; // while(i)문 탈출
         }
         else
         {
             i = 1;
         }
 
+        printf("\n");
 	}
 
 	return 0;
