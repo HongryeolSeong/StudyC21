@@ -328,7 +328,8 @@ int main()
 3. 입력이 있는 함수 작성 : void func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; }   
 4. 입출력이 있는 함수 작성 : 반환타입 func( 매개변수1 선언, 매개변수2 선언 ) { 실행문; return 반환할 변수; }   
 
-_7장 퀴즈
+---
+_7장 퀴즈   
 여러 함수를 활용한 계산기_   
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -458,3 +459,135 @@ int value2()
 	return b;
 }
 ```
+![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
+
+## Chapter_8 배열
+
+정수형 : int ary[5] = { 초기화할 값 };   
+문자형 : char str[80] = { 'a', 'b' }; or "ab";   
+* 문자열의 마지막 요소는 무조건 '\0'
+* 문자형은 한 번 초기화 후 변경시 strcpy() 사용해야함.   
+* gets() : Enter입력 전까지 모든 문자를 문자열에 저장하는 함수   
+* puts() : 문자열 출력 함수. 자동 개행 기능을 가짐   
+
+## Chapter_9 포인터
+
+변수의 주소 : ex) int a;의 경우 &a는 a의 시작 주소 값   
+그 주소를 담는 포인터
+* int* pa; pa = &a;의 경우 pa는 a의 시작 주소 값을 담는 포인터(변수)
+* *pa는 pa가 가리키는 주소인 a의 데이터 값
+* 포인터가 가리키는 자료형과 변수의 데이터타입은 무조건 동일하게 선언
+* 포인터의 크기는 주소를 담으므로 항상 4byte   
+
+   
+포인터 및 포인터가 가리키는 데이터의 상수화   
+const int* pa = &a; // 포인터가 가리키는 곳의 데이터를 상수화, pa 간접참조로 a값 못 바꾸게하는 기능   
+* //*pa = 30; // 불가   
+int* const pb = &b; // 포인터 자체가 상수화   
+* //pb = &a; // 불가   
+
+---
+_9장 예제   
+포인터를 써야하는 이유_   
+```C
+#include <stdio.h>
+
+void swap(int* pa, int* pb);
+
+int main()
+{
+	int a = 10, b = 20;
+
+	printf("a:%d, b:%d\n", a, b);
+	swap(&a, &b);
+	printf("a:%d, b:%d\n", a, b);
+
+	return 0;
+}
+
+void swap(int* pa, int* pb)
+{
+	int temp;
+
+	temp = *pa;
+	*pa = *pb;
+	*pb = temp;
+}
+```
+_위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는다._   
+
+## Chapter_10 배열과 포인터
+
+컴파일러는 배열명을 배열의 첫 번째 요소의 주소로 변경한다   
+배열명처럼 사용되는 포인터   
+* ex) int* pa = ary;이면 pa[2] = pa[1] + pa[0]과 같은 연산이 가능
+* pa는 변수라 pa++, pa + i와 같은 연산이 되지만, ary는 상수라 불가   
+   
+주소 연산시 : 주소 + 정수 => 주소 + (정수 * 해당 주소를 가지는 변수의 크기)   
+포인터 연산시 : 포인터 - 포인터 => 값의 차 / 가리키는 자료형의 크기   
+   
+함수의 입력변수로 배열 사용시, 함수의 매개변수로 포인터를 선언해야함   
+
+_10장 퀴즈   
+한 배열의 요소를 거꾸로 출력하는 함수_   
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void input_ary(int* pa, int size);
+void swap_ary(int* pa, int size);
+void print_ary(int* pa, int size);
+
+int main()
+{
+	int ary[10];
+	int size = sizeof(ary) / sizeof(ary[0]);
+
+	input_ary(ary, size);
+	swap_ary(ary, size);
+	print_ary(ary, size);
+
+	return 0;
+}
+
+void input_ary(int* pa, int size)
+{
+	int i;
+
+	printf("%d개의 정수값 입력 : ", size);
+	for (i = 0; i < size; i++)
+	{
+		scanf("%d", pa + i);
+	}
+}
+
+void swap_ary(int* pa, int size)
+{
+	int temp, i;
+	int* px = pa;
+	int* py = pa + 9;
+
+	for (i = 0; i < 5; i++)
+	{
+		temp = *(px + i);
+		*(px + i) = *(py - i);
+		*(py - i) = temp;
+	}
+
+}
+
+void print_ary(int* pa, int size)
+{
+	int i;
+
+	printf("배열 출력\n");
+
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", pa[i]);
+	}
+}
+```
+
+## Chapter_11 문자
+
