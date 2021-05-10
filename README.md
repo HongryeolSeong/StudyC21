@@ -481,4 +481,42 @@ int value2()
 
    
 포인터 및 포인터가 가리키는 데이터의 상수화   
+const int* pa = &a; // 포인터가 가리키는 곳의 데이터를 상수화, pa 간접참조로 a값 못 바꾸게하는 기능   
+* //*pa = 30; // 불가   
+int* const pb = &b; // 포인터 자체가 상수화   
+* //pb = &a; // 불가   
 
+---
+_9장 예제   
+포인터를 써야하는 이유_   
+```C
+#include <stdio.h>
+
+void swap(int* pa, int* pb);
+
+int main()
+{
+	int a = 10, b = 20;
+
+	printf("a:%d, b:%d\n", a, b);
+	swap(&a, &b);
+	printf("a:%d, b:%d\n", a, b);
+
+	return 0;
+}
+
+void swap(int* pa, int* pb)
+{
+	int temp;
+
+	temp = *pa;
+	*pa = *pb;
+	*pb = temp;
+}
+```
+_위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는다._   
+
+## Chapter_10 배열과 포인터
+
+컴파일러는 배열명을 배열의 첫 번째 요소의 주소로 변경한다   
+주소 연산시 : 주소 + 정수 => 주소 + (정수 * 해당 주소를 가지는 변수의 크기)   
