@@ -458,3 +458,4 @@ int value2()
 	return b;
 }
 ```
+![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
