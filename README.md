@@ -236,6 +236,7 @@ int main()
 	return 0;
 }
 ```
+![결과2](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%94%BC%EB%9D%BC%EB%AF%B8%EB%93%9C.png "피라미드")
 
 _종료기능이 있는 무한반복 계산기_
 ```C
@@ -311,3 +312,4 @@ int main()
 	return 0;
 }
 ```
+![결과3](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B3%84%EC%82%B0%EA%B8%B0.png "계산기")
