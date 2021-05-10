@@ -521,8 +521,70 @@ _위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는
 컴파일러는 배열명을 배열의 첫 번째 요소의 주소로 변경한다   
 배열명처럼 사용되는 포인터   
 * ex) int* pa = ary;이면 pa[2] = pa[1] + pa[0]과 같은 연산이 가능
-* pa는 변수라 pa++과 같은 연산이 되지만, ary는 상수라 ary++과 같은 연산 불가   
+* pa는 변수라 pa++, pa + i와 같은 연산이 되지만, ary는 상수라 불가   
    
 주소 연산시 : 주소 + 정수 => 주소 + (정수 * 해당 주소를 가지는 변수의 크기)   
 포인터 연산시 : 포인터 - 포인터 => 값의 차 / 가리키는 자료형의 크기   
    
+함수의 입력변수로 배열 사용시, 함수의 매개변수로 포인터를 선언해야함   
+
+_10장 퀴즈   
+한 배열의 요소를 거꾸로 출력하는 함수_   
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void input_ary(int* pa, int size);
+void swap_ary(int* pa, int size);
+void print_ary(int* pa, int size);
+
+int main()
+{
+	int ary[10];
+	int size = sizeof(ary) / sizeof(ary[0]);
+
+	input_ary(ary, size);
+	swap_ary(ary, size);
+	print_ary(ary, size);
+
+	return 0;
+}
+
+void input_ary(int* pa, int size)
+{
+	int i;
+
+	printf("%d개의 정수값 입력 : ", size);
+	for (i = 0; i < size; i++)
+	{
+		scanf("%d", pa + i);
+	}
+}
+
+void swap_ary(int* pa, int size)
+{
+	int temp, i;
+	int* px = pa;
+	int* py = pa + 9;
+
+	for (i = 0; i < 5; i++)
+	{
+		temp = *(px + i);
+		*(px + i) = *(py - i);
+		*(py - i) = temp;
+	}
+
+}
+
+void print_ary(int* pa, int size)
+{
+	int i;
+
+	printf("배열 출력\n");
+
+	for (i = 0; i < size; i++)
+	{
+		printf("%d ", pa[i]);
+	}
+}
+```
