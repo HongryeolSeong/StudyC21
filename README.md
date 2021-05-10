@@ -210,3 +210,4 @@ int main()
 	return 0;
 }
 ```
+![결과1](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B5%AC%EA%B5%AC%EB%8B%A8.png "구구단")
