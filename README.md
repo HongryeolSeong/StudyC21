@@ -3,9 +3,11 @@
 PKNU C언어 학습 리포지토리
 <br>
 <br>
+<br>
 ## Chapter_1 프로그램 만들기🎯
 
 기본적인 visual studio 구동 및 프로젝트 생성
+<br>
 <br>
 <br>
 ## Chapter_2 상수와 데이터 출력🎯
@@ -54,6 +56,7 @@ int main(void)
 ```
 <br>
 <br>
+
 ## Chapter_4 연산자🎯
 
 산술 연산자 : +, -, *, /, %<br>
