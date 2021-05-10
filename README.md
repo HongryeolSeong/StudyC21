@@ -60,3 +60,12 @@ int main(void)
 크기 연산자 : sizeof<br>
 복합대입 연산자 : +=, -=, *=, /=, %=<br>
 조건 연산자 : res = (a > b) ? a : b; <span style="color:green">// 삼항 연산자라고도 함</span><br>
+
+## Chapter_5 선택문
+
+if (조건식) { 실행문; }<br>
+else if (조건식) { 실행문; }<br>
+else { 실행문; }<br>
+<br>
+switch (변수)
+case 변수의 값:
