@@ -41,16 +41,13 @@ void swap_ary(int* pa, int size)
 		*(py - i) = temp;
 	}
 
-	/*temp = *(px + 2);
-	*(px + 2) = *(py - 2);
-	*(py - 2) = temp;*/
 }
 
 void print_ary(int* pa, int size)
 {
 	int i;
 
-	printf("배열 출력\n");
+	printf("         배열 출력 : ");
 
 	for (i = 0; i < size; i++)
 	{
