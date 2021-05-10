@@ -26,6 +26,7 @@ PKNU C언어 학습 리포지토리
 -> #define _CRT_SECURE_NO_WARNINGS 맨 위에 필수로 사용할 것<br>
 -> 배열 입력시 &붙이지 말 것<br>
 <br>
+---
 _3장 퀴즈<br>
 정수 다음 바로 문자 입력해야할 경우_<br>
 ```C
@@ -75,6 +76,7 @@ default:<br>
    실행문;<br>
    break;<br>
 <br>
+---
 _5장 퀴즈<br>
 if와 switch를 활용한 계산기_<br>
 ```C
@@ -183,7 +185,9 @@ while(조건식) { 실행문; }<br>
 for ( 초기식; 조건식; 증감식 ) { 실행문; }<br>
 do { 실행문; } while (조건식);<br>
 
-_구구단_
+---
+_6장 퀴즈<br>
+구구단_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -212,7 +216,7 @@ int main()
 }
 ```
 ![결과1](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B5%AC%EA%B5%AC%EB%8B%A8.png "구구단")
-
+---
 _중복for문 활용한 피라미드 모양 출력_
 ```C
 #include <stdio.h>
@@ -238,7 +242,7 @@ int main()
 }
 ```
 ![결과2](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%94%BC%EB%9D%BC%EB%AF%B8%EB%93%9C.png "피라미드")
-
+---
 _종료기능이 있는 무한반복 계산기_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -314,3 +318,7 @@ int main()
 }
 ```
 ![결과3](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B3%84%EC%82%B0%EA%B8%B0.png "계산기")
+
+
+## Chapter_7 함수
+
