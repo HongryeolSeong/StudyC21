@@ -863,6 +863,65 @@ int score[2][3][4] = {
 char animal[][10] = { "dog", "tiger", "rabbit", "horse", "cat" };
 ```
 <br>
+_예제) 5명 학생의 총합과 평균 그리고 4개 과목의 총합과 평균_
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+{
+	int score[5][4];
+	int total1, total2;
+	double avg1, avg2;
+	int i, j;
+	char stu = 'A';
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("%c의 4과목 점수 입력 : ", stu++);
+		for (j = 0; j < 4; j++)
+		{
+			scanf("%d", &score[i][j]);
+		}
+	}
+
+	printf("\n");
+	stu = 'A';
+
+
+	for (i = 0; i < 5; i++)
+	{
+		total1 = 0;
+		for (j = 0; j < 4; j++)
+		{
+			total1 += score[i][j];
+		}
+		avg1 = total1 / 4.0;
+		printf("%c의 총 점수 : %d, 평균 : %.1lf\n", stu, total1, avg1);
+		stu++;
+
+	}
+
+	printf("\n");
+
+	for (j = 0; j < 4; j++)
+	{
+		total2 = 0;
+
+		for (i = 0; i < 5; i++)
+		{
+			total2 += score[i][j];
+		}
+
+		avg2 = total2 / 5.0;
+
+		printf("%d과목 총 점수 : %d, 평균 : %.1lf\n", j + 1, total2, avg2);
+	}
+
+	return 0;
+}
+```
+![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "총합평균")   
 
 포인터 배열 : 포인터 또한 변수이므로 그 포인터를 여러개 가진 배열도 만들 수 있다.   
 ```C
@@ -908,8 +967,66 @@ int main()
 	return 0;
 }
 ```
-![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "2차원배열")
+![결과9](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "2차원배열")
+<br>
+
+_14장 퀴즈   
+단어의 회문 테스트_
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	int i;
+	int flag = 0;
+	char str[30];
+	int size;
+	
+
+	while (1)
+	{
+		printf("테스트할 단어를 입력하시오. : ");
+		scanf("%s", str);
+		size = strlen(str);
+		printf("배열사이즈는 : %d\n", size);
+
+		char* pa = str;
+		char* pb = str + (size - 1);
+
+		for (i = 0; i < size/2; i++)
+		{
+			if (*pa != *pb)
+			{
+				flag = -1;
+				break;
+			}
+			else if (*pa == *pb)
+			{
+				pa++;
+				pb--;
+			}
+			flag = 1;
+		}
+
+		if (flag == -1)
+		{
+			printf("이 단어는 회문이 아닙니다.\n");
+		}
+		else if (flag == 1)
+		{
+			printf("이 단어는 회문입니다!!!\n");
+		}
+	}
+
+	return 0;
+}
+```
+![결과10](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "회문")
+<br>
 <br>
 <br>
 
 ## Chapter_15 응용 포인터🎯
+
