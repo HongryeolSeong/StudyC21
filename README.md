@@ -188,6 +188,8 @@ int main()
 ```
 <br>
 <br>
+<br>
+
 ## Chapter_6 반복문🎯
 
 while(조건식) { 실행문; }<br>
@@ -329,6 +331,8 @@ int main()
 ![결과3](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B3%84%EC%82%B0%EA%B8%B0.png "계산기")
 <br>
 <br>
+<br>
+
 ## Chapter_7 함수🎯
 
 함수 작성 종류<br>
@@ -471,6 +475,8 @@ int value2()
 ![결과4](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%95%A8%EC%88%98%EA%B3%84%EC%82%B0%EA%B8%B0.png "함수계산기")
 <br>
 <br>
+<br>
+
 ## Chapter_8 배열🎯
 
 정수형 : int ary[5] = { 초기화할 값 };   
@@ -481,6 +487,8 @@ int value2()
 * puts() : 문자열 출력 함수. 자동 개행 기능을 가짐   
 <br>
 <br>
+<br>
+
 ## Chapter_9 포인터🎯
 
 변수의 주소 : ex) int a;의 경우 &a는 a의 시작 주소 값   
@@ -528,6 +536,8 @@ void swap(int* pa, int* pb)
 _위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는다._   
 <br>
 <br>
+<br>
+
 ## Chapter_10 배열과 포인터🎯
 
 컴파일러는 배열명을 배열의 첫 번째 요소의 주소로 변경한다   
@@ -676,6 +686,8 @@ void print_lotto(int* pl, int size)
 ![결과6](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%A1%9C%EB%98%90.png "")
 <br>
 <br>
+<br>
+
 ## Chapter_11 문자🎯
 
 'a'로 입력된 문자 a는 컴파일을 통해 아스키 코드 값으로 바뀐다   
@@ -729,6 +741,8 @@ int main()
 ![결과7](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90.png "대소문자")
 <br>
 <br>
+<br>
+
 ## Chapter_12 문자열🎯
 
 배열과 마찬가지로 문자열은 그 문자열의 첫 문자가 시작하는 주소와 같다.   
@@ -801,4 +815,6 @@ void my_gets(char* ps)
 ```
 <br>
 <br>
+<br>
+
 ## Chapter_13 변수의 영역과 데이터 공유🎯
