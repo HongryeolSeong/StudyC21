@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex17_12.c" />
+    <ClCompile Include="quiz_login.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{dbdf7eb3-6b0b-42e6-a6e9-ecf735f8d3e8}</ProjectGuid>
-    <RootNamespace>My17Chapter</RootNamespace>
+    <ProjectGuid>{e837d11f-34e7-4f2e-a6ce-f02b1333816b}</ProjectGuid>
+    <RootNamespace>My18Chapter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex17_12.c">
+    <ClCompile Include="quiz_login.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
