@@ -19,13 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex18_11.c" />
+    <ClCompile Include="ex19_2.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e837d11f-34e7-4f2e-a6ce-f02b1333816b}</ProjectGuid>
-    <RootNamespace>My18Chapter</RootNamespace>
+    <ProjectGuid>{4204cccb-bc9a-4416-b0a1-e10a27f7f17f}</ProjectGuid>
+    <RootNamespace>My19Chapter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
