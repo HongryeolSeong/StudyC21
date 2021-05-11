@@ -3,7 +3,7 @@
 #define PI 3.14159
 #define LIMIT 100.0
 #define MSG "passed!"
-#define ERR_PRN printrf("허용 범위를 벗어났습니다!\n");
+#define ERR_PRN printf("허용 범위를 벗어났습니다!\n");
 
 int main()
 {
