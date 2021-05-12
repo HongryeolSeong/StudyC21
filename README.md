@@ -1475,7 +1475,7 @@ void print_list(struct address* lp) // 구조체 변수인 list[5]를 포인터�
 ```
 <br>
 
-* 자기 참조 구조체
+* 자기 참조 구조체   
 자신의 구조체를 가르키는 포인터 선언을 통해 여러 구조체 변수가 연결된 형태 구현 가능
 ```C
 struct list
@@ -1509,4 +1509,83 @@ int main()
 }
 ```
 <br>
+
+* 공용체   
+구조체와 비슷하지만 모든 멤버가 하나의 저장 공간을 같이 사용   
+효율적 메모리 활용이 중요한 임베디드에서 많이 활용   
+```C
+union student
+{
+	int num;
+	double grade;
+};
+
+struct student1
+{
+	int num;
+	double grade;
+};
+
+int main()
+{
+	union student s1 = { 315 }; // 이렇게 하면 공용체는 첫 번째 멤버만 초기화 됨
+
+	printf("학번 : %d\n", s1.num);
+	s1.grade = 4.4;
+	printf("학점 : %.1lf\n", s1.grade);
+
+	printf("학번 : %d\n", s1.num); // 이렇게 하면 겹쳐져서 이상한 값 나옴
+
+	s1.num = 315; // 그러므로 다시 대입 후 
+	printf("학번 : %d\n", s1.num); // 출력해야함
+	
+	printf("공용체 크기 : %d\n", sizeof(s1));
+	// 공용체는 제일 큰 멤버 변수의 크기만을 할당받아 사용 그리고 멤버 끼리 공유
+
+	struct student1 s2;
+	
+	printf("구조체 크기 : %d\n", sizeof(s2)); // 12byte + 패딩바이트
+}
+```
+<br>
+
+* 열거형   
+역시 구조체와 비슷하지만 멤버들이 정수로 정의됨.   
+```C
+enum season { SPRING, SUMMER, FALL, WINTER };
+
+int main()
+{
+	enum season ss;
+	char* pc = NULL;
+
+	scanf("%d", &ss); // 정수값 입력
+
+	switch (ss)
+	{
+	case SPRING:
+		pc = "inline";
+		break;
+	case SUMMER:
+		pc = "swimming";
+		break;
+	case FALL:
+		pc = "trip";
+		break;
+	case WINTER:
+		pc = "skiing";
+		break;
+	}
+
+	printf("나의 레저 활동 => %s\n", pc);
+	printf("%d %d %d %d\n", SPRING, SUMMER, FALL, WINTER);
+	// enum의 멤버는 정수값을 가진다. 이웃 멤버와 +1 관계 가짐
+	// if FALL = 100 이면 SUMMER = 1, WINTER = 101 이 된다.
+
+	return 0;
+}
+```
+<br>
+
+* typedef   
 
