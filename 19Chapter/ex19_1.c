@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "student.h" // 사용자 헤더파일
+#include "ex19_1_student.h" // 사용자 헤더파일
 
 int main()
 {
