@@ -1419,3 +1419,94 @@ struct vision exchange(struct vision robot) { 교체 실행문; }
 ```
 <br>
 
+* 구조체 포인터
+```C
+struct score
+{
+	int kor;
+	int math;
+};
+
+int main()
+{
+	struct score yuni = { 90, 80 };
+	struct score* ps = &yuni; // 구조체 변수 yuni의 주소를 담는 포인터 ps.
+
+	printf("국어 : %d\n", (*ps).kor); // *의 참조 연산이 우선 순위이므로 괄호 필수
+	printf("영어 : %d\n", ps->eng); // 위와 동일한 결과 출력
+}
+```
+<br>
+
+* 구조체 배열
+```C
+int main()
+{
+	struct address list[5] = {
+		{"홍길동", 23, "111-1111", "울릉도 독도"}, // address 구조체의 변수인 list배열의 초기화
+		{"이순신", 35, "222-2222", "서울 건천동"},
+		{"장보고", 19, "333-3333", "완도 청해진"},
+		{"유관순", 15, "444-4444", "충남 천안"},
+		{"안중근", 45, "555-5555", "황해도 해주"}
+	};
+
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("%10s%5d%15s%20s\n",
+			list[i].name, list[i].age, list[i].tel, list[i].addr);
+	}
+}
+```
+위의 구조체를 매개변수로 넘긴 출력 함수 활용시
+```C
+void print_list(struct address* lp) // 구조체 변수인 list[5]를 포인터로 넘겨 받음
+{
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("%10s%5d%15s%20s\n",
+			(*(lp + i)).name, (*(lp + i)).age, (*(lp + i)).tel, (*(lp + i)).addr);
+			//(lp + i)->name, (lp + i)->age, (lp + i)->tel, (lp + i)->addr); // 위와 동일한 결과 출력
+	}
+}
+```
+<br>
+
+* 자기 참조 구조체
+자신의 구조체를 가르키는 포인터 선언을 통해 여러 구조체 변수가 연결된 형태 구현 가능
+```C
+struct list
+{
+	int num;
+	struct list* next; // 구조체 자신을 가리키는 포인터 next
+};
+
+int main()
+{
+	struct list a = { 10, 0 }, b = { 20, 0 }, c = { 30, 0 };
+	struct list* head = &a, * current;
+	// 구조체 a를 가르키는 head와 list구조체를 가르키는 current 포인터
+
+	a.next = &b; // next포인터로 구조체들을 연결
+	b.next = &c;
+
+	printf("head->num : %d\n", head->num);
+	printf("head->next->num : %d\n", head->next->num);
+
+	printf("list all : ");
+	current = head;
+	while (current != NULL) // 연결 리스트 구조
+	{
+		printf("%d ", current->num);
+		current = current->next;
+	}
+	printf("\n");
+
+	return 0;
+}
+```
+<br>
+
