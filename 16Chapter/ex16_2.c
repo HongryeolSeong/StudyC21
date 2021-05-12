@@ -5,7 +5,7 @@
 int main()
 {
 	int* pi;
-	int i, sum = 0; // sum은 연산해야하므로 처음에 쓰레기 값이 있으면 안됨
+	int i, sum = 0; // sum은 연산시 처음 값이 쓰레기 값이면 안되므로 0으로 초기화
 
 	pi = (int*)malloc(5 * sizeof(int));
 	if (pi == NULL)

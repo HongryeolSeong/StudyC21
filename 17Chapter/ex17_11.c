@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 enum season { SPRING, SUMMER, FALL, WINTER };
@@ -7,7 +8,8 @@ int main()
 	enum season ss;
 	char* pc = NULL;
 
-	ss = SPRING;
+	scanf("%d", &ss); // 정수값 입력
+
 	switch (ss)
 	{
 	case SPRING:

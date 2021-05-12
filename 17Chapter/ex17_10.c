@@ -29,7 +29,7 @@ int main()
 	printf("공용체 크기 : %d\n", sizeof(s1));
 	// 공용체는 제일 큰 멤버 변수의 크기만을 할당받아 사용 그리고 멤버 끼리 공유
 
-	struct  student1 s2;
+	struct student1 s2;
 	
 	printf("구조체 크기 : %d\n", sizeof(s2)); // 12byte + 패딩바이트
 

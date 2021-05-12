@@ -6,7 +6,7 @@ void print_sub(int (*pa)[4]);
 
 int main()
 {
-	int score[5][4];
+	int score[5][4]; // 2차원 배열
 	int i, j;
 	char stu = 'A';
 
@@ -26,7 +26,7 @@ int main()
 	return 0;
 }
 
-void print_stu(int (*pa)[4])
+void print_stu(int (*pa)[4]) // 2차원 배열을 배열 포인터로 매개변수 받음
 {
 	int i, j;
 	int total;
@@ -46,7 +46,7 @@ void print_stu(int (*pa)[4])
 	}
 }
 
-void print_sub(int (*pa)[4])
+void print_sub(int (*pa)[4]) // 2차원 배열을 배열 포인터로 매개변수 받음
 {
 	int i, j;
 	int total;

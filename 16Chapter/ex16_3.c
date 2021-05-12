@@ -17,7 +17,7 @@ int main()
 		printf("양수만 입력하세요 => ");
 		scanf("%d", &num);
 		if (num <= 0) break;
-		if (count == size) // 저장 공간 5개 모두 사용시
+		if (count == size) // 저장 공간 모두 사용시
 		{
 			size += 5; // 공간 크기 늘려서
 			pi_back = pi;
