@@ -1033,7 +1033,6 @@ int main()
 }
 ```
 ![결과10](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "회문")
----
 <br>
 <br>
 <br>
@@ -1050,3 +1049,5 @@ int **ppi;
 pi = &a;
 ppi = &pi;
 ```
+pi = &a, * pi = a   
+ppi = &pi, * ppi = &a, ** ppi = a   
