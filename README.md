@@ -548,6 +548,7 @@ _위의 코드에서 포인터 사용안할시 a와 b의 값은 바뀌지 않는
    
 함수의 입력변수로 배열 사용시, 함수의 매개변수로 포인터를 선언해야함   
 
+---
 _10장 퀴즈   
 한 배열의 요소를 거꾸로 출력하는 함수_   
 ```C
@@ -609,6 +610,7 @@ void print_ary(int* pa, int size)
 }
 ```
 ![결과5](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EA%B1%B0%EA%BE%B8%EB%A1%9C.png "거꾸로출력")
+---
    
 _10장 퀴즈2   
 중복된 번호는 입력불가한 로또 배열_
@@ -699,6 +701,7 @@ scanf의 경우 모든 자료형을 입력받을 수 있으므로 무거움
 -> 문자만 입출력하는 경우 전용 함수(ch = getchar();, putchar(ch);) 사용시 효율적.   
 --> getchar의 경우 getchar();만 사용시 개행문자를 제거하는 기능이 있다   
 
+---
 _11장 퀴즈   
 대소문자 변환_   
 ```C
@@ -737,6 +740,7 @@ int main()
 }
 ```
 ![결과7](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90.png "대소문자")
+---
 <br>
 <br>
 <br>
@@ -770,6 +774,7 @@ strlen
 strcmp, strncmp
 * strcmp(str1, str2);, strncmp(str1, str2, 비교할 문자 갯수);
    
+---
 _12장 퀴즈   
 직접 만드는 gets 함수_   
 ```C
@@ -864,6 +869,7 @@ char animal[][10] = { "dog", "tiger", "rabbit", "horse", "cat" };
 ```
 <br>
 
+---
 _예제) 5명 학생의 총합과 평균 그리고 4개 과목의 총합과 평균_
 ```C
 #define _CRT_SECURE_NO_WARNINGS
@@ -923,6 +929,7 @@ int main()
 }
 ```
 ![결과8](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%EC%B4%9D%ED%95%A9%ED%8F%89%EA%B7%A0.png "총합평균")   
+---
 
 포인터 배열 : 포인터 또한 변수이므로 그 포인터를 여러개 가진 배열도 만들 수 있다.   
 ```C
@@ -971,6 +978,7 @@ int main()
 ![결과9](https://github.com/HongryeolSeong/StudyC21/blob/main/img/res1.png "2차원배열")
 <br>
 
+---
 _14장 퀴즈   
 단어의 회문 테스트_
 ```C
@@ -1025,6 +1033,7 @@ int main()
 }
 ```
 ![결과10](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "회문")
+---
 <br>
 <br>
 <br>
