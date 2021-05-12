@@ -29,7 +29,7 @@ int main()
 	printf("나의 레저 활동 => %s\n", pc);
 	printf("%d %d %d %d\n", SPRING, SUMMER, FALL, WINTER);
 	// enum의 멤버는 정수값을 가진다. 이웃 멤버와 +1 관계 가짐
-	// if FALL = 100 이면 SUMMER = 1, WINTER = 101 이 된다.
+	// if FALL = 100 이면 SUMMER = 1, WINTER = 101 이 된다
 
 	return 0;
 }
