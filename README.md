@@ -1267,14 +1267,39 @@ int main()
 * calloc, realloc 함수   
 calloc() : 메모리 할당시 공간을 0으로 초기화   
 realloc() : 이미 동적 할당된 공간의 크기를 조절   
+realloc() 유의점   
+-> 공간 부족시 새 메모리 공간 할당하여 기존 요소 복사   
+-> but null이 반환될 시 기존 주소 잃어버림   
+--> 임시 포인터에 realloc 공간 반환 후 사용할 것   
 ```C
-pi = (int*)calloc(size, sizeof(int)); // 5개 공간 할당 후 자동으로 0으로 초기화
-if (count == size) // 저장 공간 모두 사용시
+int main()
+{
+	int* pi; // 동적 할당 공간과 연결할 포인터
+	int* pi_back; // realloc 오류를 대비한 백업 포인터
+
+	pi = (int*)calloc(size, sizeof(int)); // 5개 공간 할당 후 자동으로 0으로 초기화
+	while (1)
+	{
+		if (count == size) // 저장 공간 모두 사용시
 		{
-			size += 5; // 공간 크기 5개 늘려서
+			size += 5; // 공간 크기 늘려서
+			pi_back = pi; // 할당 실패 방지 pi의 공간 주소를 pi_back으로 백업
 			pi = (int*)realloc(pi, size * sizeof(int)); // 재할당
+			if (pi == NULL) // 공간 할당 실패시
+			{
+				pi = pi_back; // 백업했던 공간의 주소를 다시 기존 pi포인터와 연결
+			}
 		}
+	}
+	
+	for (i = 0; i < count; i++)
+	{
+		printf("%5d", pi[i]);
+	}
+	free(pi);
+}
 ```
+위처럼 pi의 백업 포인터인 pi_back을 활용하여 realloc의 할당 실패를 방지하였다.   
 <br>
 
 * 동적 할당 활용한 문자열 처리   
@@ -1304,4 +1329,93 @@ int main()
 <br>
 
 ## Chapter_17 사용자 정의 자료형🎯
+
+* 구조체 : int, char, 배열 등 여러 자료형을 묶어서 사용 가능한 복합 자료형   
+```C
+#include <stdio.h>
+
+struct student // 메모리 할당x
+{
+	int num;
+	double grade;
+}; // ; 필수
+
+int main()
+{
+	struct student s1; // 구조체 변수 생성 동시에 메모리 할당 됨
+
+	s1.num = 2;
+	s1.grade = 2.7;
+}
+```
+<br>
+
+* 다른 구조체를 멤버로 갖는 구조체 사용시   
+```c
+struct profile
+{
+	int age;
+	double height;
+};
+
+struct student
+{
+	struct profile pf;
+};
+
+int main()
+{
+	struct student yuni;
+
+	yuni.pf.age = 17;
+	yuni.pf.height = 164.5;
+}
+```
+<br>
+
+* 구조체 변수의 초기화와 대입 연산   
+```C
+struct student
+{
+	int id;
+	char name[20];
+	double grade;
+};
+
+int main()
+{
+	struct student s1 = { 315, "홍길동", 2.4 }, // 구조체 변수의 초기화
+		       s2 = { 316, "이순신", 3.7 },
+		       s3 = { 317, "세종대왕", 4.4 };
+
+	struct student max; // 대입 시킬 구조체 변수
+
+	max = s1; // 한 구조체 변수에 다른 구조체 변수를 대입
+	if (s2.grade > max.grade) max = s2;
+	if (s3.grade > max.grade) max = s3;
+}
+```
+<br>
+
+* 구조체를 매개변수로 하는 함수
+```C
+struct vision
+{
+	double left;
+	double right;
+};
+
+struct vision exchange(struct vision robot);
+
+int main()
+{
+	struct vision robot;
+
+	scanf("%lf%lf", &(robot.left), &(robot.right));
+	robot = exchange(robot);
+}
+
+struct vision exchange(struct vision robot) { 교체 실행문; }
+```
+<br>
 
