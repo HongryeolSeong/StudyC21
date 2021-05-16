@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "user.h"
+#include "test_user.h"
 
 int main()
 {

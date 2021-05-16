@@ -5,6 +5,9 @@
 int main()
 {
 	Line a = { {1, 2}, {5, 6} };
+	// line.h를 인클루드하며
+	// 이미 인클루드 된 point.h를
+	// 한 번 더 인클루드 하게 됨 -> 중복 발생
 	Point b;
 
 	b.x = (a.first.x + a.second.x) / 2;

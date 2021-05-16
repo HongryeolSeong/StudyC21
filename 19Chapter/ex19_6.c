@@ -11,8 +11,9 @@ int main()
 #endif
 
 #ifdef BIT16 // 매크로명 BIT16이 정의 돼있다면
+// != #ifndef
 	max = 32767;
-#else // 안돼있다면 = #ifndef
+#else // 안돼있다면
 	max = 2147483647;
 #endif
 

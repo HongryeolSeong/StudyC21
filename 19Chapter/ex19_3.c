@@ -16,7 +16,7 @@ int main()
 	
 	printf("%d\n", test(a + 10)); 
 	// 원래 200 나와야 하지만 110출력
-	// #define test(a) ((a) * (10))이 되야함
+	// -> #define test(a) ((a) * (10))이 되야함
 
 	return 0;
 }
