@@ -2250,4 +2250,197 @@ int main()
 ```
 <br>
 
-*
+* 조건부 컴파일 지시자   
+소스코드를 조건에 따라 선택적으로 컴파일하게 하는 역할   
+```C
+#include <stdio.h>
+#define VER 7
+#define BIT16
+
+int main()
+{
+	int max;
+
+#if VER >=6;
+	printf("버전 %d입니다.\n", VER);
+#endif
+
+#ifdef BIT16 // 매크로명 BIT16이 정의 돼있다면
+// != #ifndef
+	max = 32767;
+#else // 안돼있다면
+	max = 2147483647;
+#endif
+
+	printf("int형 변수의 최댓값 : %d\n", max);
+
+	return 0;
+}
+```
+<br>
+
+* #pragma 지시자   
+컴파일 방법을 세부적으로 제어할 때   
+```C
+#include <stdio.h>
+#pragma pack(push, 1) // #pragma pack(1)도 가능
+// 바이트 얼라인먼트를 1로 바꿈
+// -> 단위 크기를 1로 설정 -> 구조체 멤버가 모든 위치에 할당
+// -> 이후 정의된 구조체는 모두 패딩바이트 포함x
+// -> 구초제의 크기는 멤버들의 크기를 더한 것과 같다
+typedef struct
+{
+	char ch;
+	int in;
+} Sample1;
+
+// 바꾸기 전의 바이트 얼라인먼트 규칙을 적용 시
+#pragma pack(pop)
+typedef struct
+{
+	char ch;
+	int in;
+} Sample2;
+
+int main()
+{
+	printf("Sample1 구조체의 크기 : %d바이트\n", sizeof(Sample1));
+	printf("Sample2 구조체의 크기 : %d바이트\n", sizeof(Sample2));
+
+	return 0;
+}
+```
+<br>
+
+* 분할 컴파일   
+한 프로그램을 여러 모듈로 나누어 컴파일시   
+-> 쉬운 디버깅/유지보수   
+-> 코드 재활용 용이   
+-> 여러 명이 코드 작업 가능   
+<br>
+
+* extern, static   
+분할 작업시 전역 변수의 공유에 대한 방법   
+extern : 다른 파일에 선언된 전역 변수를 공유하기 위한 예약어   
+static : 전역 변수가 다른 파일에서 공유되지 못하게 하는 예약어   
+```C
+// main.c
+#include <stdio.h>
+
+int input_data(void);
+double average(void);
+void print_data(double);
+
+int count = 0;
+static int total = 0; // input.c의 전역 변수 total과 중복 차단위해
+
+int main()
+{
+	double avg;
+
+	total = input_data();
+	avg = average();
+	print_data(avg);
+
+	return 0;
+}
+
+void print_data(double avg)
+{
+	printf(" 입력한 양수의 개수 : %d\n", count);
+	printf(" 전체 합과 평균 : %d, %.1lf\n", total, avg);
+}
+```
+```C
+// input.c
+#include <stdio.h>
+
+extern int count; // main.c의 전역 변수인 count를 공유
+int total = 0;
+
+int input_data(void)
+{
+	int pos;
+
+	while (1)
+	{
+		printf("양수 입력 : ");
+		scanf("%d", &pos);
+		if (pos < 0) break;
+		count++;
+		total += pos;
+	}
+
+	return total;
+}
+```
+```C
+// average.c
+extern int count; // main.c의 count
+extern int total; // input.c의 total
+
+double average(void)
+{
+	return total / (double)count;
+}
+```
+<br>
+
+* 헤더 파일의 필요성
+한 함수를 여러 파일에서 사용하는 경우 -> 각 파일에 모두 여러 번 함수 선언이 필요   
+한 전역 변수를 여러 파일에서 공유하는 경우 -> 각 파일에 모두 extern 선언이 필요   
+--> 헤더 파일을 만들어 인클루드 함으로써 여러 번의 선언을 최소화 함.   
+<br>
+
+* 중복 문제 해결   
+두 번 이상 인클루드 실행 시 중복 문제 발생   
+조건부 컴파일 지시자 ifndef를 사용하여 해결   
+```C
+// main.c
+#include <stdio.h>
+#include "point.h"
+#include "line.h"
+
+int main()
+{
+	Line a = { {1, 2}, {5, 6} };
+	// line.h를 인클루드하며
+	// 이미 인클루드 된 point.h를
+	// 한 번 더 인클루드 하게 됨 -> 중복 발생
+	Point b;
+
+	b.x = (a.first.x + a.second.x) / 2;
+	b.y = (a.first.y + a.second.y) / 2;
+	printf("선의 가운데 점의 좌표 : (%d, %d)\n", b.x, b.y);
+
+	return 0;
+}
+```
+```C
+// point.h
+#ifndef _POINT_H_
+#define _POINT_H_
+
+typedef struct
+{
+	int x;
+	int y;
+} Point;
+
+#endif
+```
+```C
+// line.h
+#include "point.h"
+#ifndef _LINE_H_
+#define _LINE_H_
+
+typedef struct
+{
+	Point first;
+	Point second;
+} Line;
+
+#endif
+```
+<br>
