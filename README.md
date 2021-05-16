@@ -1937,6 +1937,7 @@ int main()
 ```   
 ![결과16](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres6.png "fileres6")
 <br>
+<br>
 
 * fscanf, fprintf   
 여러 자료형을 가지는 여러 변수 출력시 사용   
