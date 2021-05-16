@@ -20,6 +20,8 @@ int main()
 	{
 		printf("%d번째 인원의 아이디, 이름, 급여를 입력하시오. : ", i + 1);
 		scanf("%d%s%d", &list[i].id, temp, &list[i].salary);
+
+		// 구조체 멤버인 name을 동적 할당하는 과정
 		list[i].name = (char*)malloc(strlen(temp) + 1);
 		if (list[i].name == NULL)
 		{
@@ -48,7 +50,7 @@ int main()
 
 	printf("\n");
 
-	for (i = 0; i < 5; i++) // 메모리 반환
+	for (i = 0; i < 5; i++) // 동적 할당된 메모리 반환
 	{
 		free(list[i].name);
 	}

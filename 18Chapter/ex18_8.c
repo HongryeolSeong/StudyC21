@@ -7,30 +7,22 @@ int main()
 	char str[80];
 	char* res;
 
-	ifp = fopen("a.txt", "r");
+	ifp = fopen("a.txt", "r"); // 입력 받아올 파일의 포인터
 	if (ifp == NULL)
 	{
 		printf("입력 파일을 열지 못했습니다.\n");
 		return 1;
 	}
 
-	ofp = fopen("b.txt", "w");
-	/*if (ofp == NULL) // 주석해도 오류 없음
+	ofp = fopen("b.txt", "w");  // 출력할 파일의 포인터
+	while (1) // NULL 만날때까지 반복
 	{
-		printf("출력 파일을 열지 못했습니다.\n");
-		return 1;
-	}*/
-
-	while (1)
-	{
+		//b.txt에 한 줄(str) 출력
 		res = fgets(str, sizeof(str), ifp);
-		if (res == NULL)
-		{
-			break;
-		}
-		str[strlen(str) - 1] = '\0';
-		fputs(str, ofp);
-		fputs(" ", ofp);
+		if (res == NULL) break;
+		str[strlen(str) - 1] = '\0'; // 한 줄의 끝에 개행 문자를 제거하고 NULL문자 삽입
+		fputs(str, ofp); // 한 줄 출력
+		fputs(" ", ofp); // 한 줄 출력 후 이어서 스페이스 출력
 	}
 
 	fclose(ifp);

@@ -11,8 +11,7 @@ int main()
 
 	fscanf(fp, "%d", &age);
 	while (fgetc(fp) != '\n') {} // 밑의 문제를 해결
-	//fgets(name, sizeof(name), fp); // 17"\n"에서 개행 문자가 바로 입력 돼버림
-	fscanf(fp, "%s", name);
+	fgets(name, sizeof(name), fp); // 17"\n"에서 개행 문자가 바로 입력 돼버림
 
 	printf("나이 : %d, 이름 : %s", age, name);
 	fclose(fp);

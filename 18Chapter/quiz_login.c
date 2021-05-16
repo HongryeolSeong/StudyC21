@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 struct Login
 {
@@ -11,7 +13,7 @@ int main()
 {
 	FILE* fl;
 	struct Login s1;
-	char *id;
+	char* id;
 	char temp[80];
 	int pw;
 	int res;
@@ -19,8 +21,8 @@ int main()
 
 	while (1)
 	{
-		printf("아이디와 패스워드를 입력하시오 : ");
-		scanf("%s%d", temp, &pw);
+		printf("아이디를 입력하시오 : ");
+		gets(temp);
 		id = (char*)malloc(strlen(temp) + 1); // id 동적할당
 		if (id == NULL)
 		{
@@ -28,6 +30,9 @@ int main()
 			exit(1);
 		}
 		strcpy(id, temp);
+
+		printf("패스워드를 입력하시오 : ");
+		scanf("%d", &pw);
 
 		fl = fopen("password.txt", "r"); // 로그인 정보 담긴 파일 개방
 		if (fl == NULL)
@@ -38,41 +43,33 @@ int main()
 
 		while (1)
 		{
-			res = fscanf(fl, "%s%d", s1.id, &s1.pw); // 개방한 파일에서 아이디와 비밀번호 입력받음
+			// 개방한 파일에서 아이디와 비밀번호 입력받아 s1의 멤버에 각각 대입
+			res = fscanf(fl, "%s%d", s1.id, &s1.pw); 
 			if (res == EOF)
 			{
 				break;
 			}
 
-			if (strcmp(s1.id, id) == 0)
+			if (strcmp(s1.id, id) == 0) // 파일의 id와 키보드로 입력받은 id가 같은 경우
 			{
-				if (s1.pw == pw)
+				if (s1.pw == pw) // 파일의 pw와 키보드로 입력받은 pw가 같은 경우
 				{
 					printf("로그인 되었습니다.\n");
 					check = 1;
 				}
-				else
+				else // 파일의 pw와 키보드로 입력받은 pw가 다른 경우
 				{
 					printf("패스워드가 틀립니다.\n");
 				}
 			}
-			else
+			else // 파일의 id와 키보드로 입력받은 id가 다른 경우
 			{
 				printf("아이디가 틀립니다.\n");
+				getchar();
 			}
-
-			//if (strcmp(s1.id, id) == 0 && s1.pw == pw) // 사용자가 입력한 값과 파일 내 값을 비교
-			//{
-			//	printf("로그인되었습니다.");
-			//	check = 1;
-			//}
-			//else
-			//{
-			//	printf("ID를 찾을 수 없습니다.");
-			//}
 		}
 
-		if (check == 1)
+		if (check == 1) // 로그인이 된 경우
 		{
 			break;
 		}
@@ -80,6 +77,7 @@ int main()
 		printf("\n");
 
 		fclose(fl); // 로그인 파일 닫기
+		free(id);
 	}
 
 	return 0;
