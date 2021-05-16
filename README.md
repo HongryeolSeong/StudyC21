@@ -1588,4 +1588,119 @@ int main()
 <br>
 
 * typedef   
+구조체, 공용체, 열거형의 변수 생성시 예약어를 생략하게 해주는 형 재정의   
+```C
+typedef struct {
+	int num;
+	double grade;
+}Student;
 
+void print_data(Student* ps);
+
+int main()
+{
+	Student s1 = { 315, 4.2 };
+
+	print_data(&s1);
+
+	return 0;
+}
+
+void print_data(Student* ps)
+{
+	printf("학번 : %d\n", ps->num);
+	printf("학점 : %.1lf\n", ps->grade);
+}
+```
+   
+---
+_17장 퀴즈   
+5명 사원의 아이디, 이름, 급여 입력 후 총/평균 급여 구하기_
+```C
+typedef struct employee {
+	int id;
+	char* name;
+	int salary;
+}Employee; // struct employee를 Employee로 재정의
+
+int main()
+{
+	char temp[80];
+	int i, total;
+	double avg;
+	Employee list[5];
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("%d번째 인원의 아이디, 이름, 급여를 입력하시오. : ", i + 1);
+		scanf("%d%s%d", &list[i].id, temp, &list[i].salary);
+
+		// 구조체 멤버인 name을 동적 할당하는 과정
+		list[i].name = (char*)malloc(strlen(temp) + 1);
+		if (list[i].name == NULL)
+		{
+			printf("메모리가 부족합니다.");
+			exit(1);
+		}
+		strcpy(list[i].name, temp); //if (list[i].name != NULL) 사용 해도 됨
+	}
+
+	printf("\n");
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("아이디 : %d, 이름 : %s, 급여 : %d\n", list[i].id, list[i].name, list[i].salary);
+	}
+
+	printf("\n");
+
+	total = 0;
+	for (i = 0; i < 5; i++)
+	{
+		total += list[i].salary;
+	}
+	avg = total / 5.0;
+	printf("급여 총액 : %d, 평균 급여 : %.1lf", total, avg);
+
+	printf("\n");
+
+	for (i = 0; i < 5; i++) // 동적 할당된 메모리 반환
+	{
+		free(list[i].name);
+	}
+}
+```
+<br>
+<br>
+
+## Chapter_18 파일 입출력🎯
+
+C의 다양한 파일 입출력 함수를 활용하여 일회성 데이터가 아닌 데이터 다루기   
+   
+* 파일 개방 및 폐쇄
+파일에 데이터 입/출력하기 전 준비 단계.   
+fopen과 fclose 함수를 이용함.   
+```C
+int main()
+{
+	FILE* fp; // 파일 구조체를 가리키는 포인터
+
+	// 파일 개방
+	// fopen()이 파일은 찾는 기본 위치는 "현재 작업 디렉터리"
+	fp = fopen("a.txt", "r"); // 파일 정보가 담긴 스트림 파일의 버퍼의 주소를 담는 fp
+	if (fp == NULL) // 파일이 없는 경우 = 주소가 NULL
+	{
+		printf("파일이 열리지 않았습니다.\n");
+		return 1; // 프로그램 종료
+	}
+	printf("파일이 열렸습니다.\n");
+
+	// 파일 폐쇄
+	fclose(fp);
+}
+```   
+fopen()과는 다르게 fclose()는 오류 발생시 EOF(= -1)을 반환한다.
+
+<br>
+
+* 
