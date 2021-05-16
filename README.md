@@ -1741,6 +1741,7 @@ int main()
 ```   
 ![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres2.png "fileres2")
 <br>
+<br>
 
 * fputc   
 파일 개방 후 파일에 데이터 출력하기   
@@ -1771,6 +1772,7 @@ int main()
 }
 ```   
 ![결과13](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres3.png "fileres3")
+<br>
 <br>
 
 * 기본적으로 개방되는 표준 입출력 스트림 파일   
@@ -1934,6 +1936,7 @@ int main()
 }
 ```   
 ![결과16](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres6.png "fileres6")
+<br>
 
 * fscanf, fprintf   
 여러 자료형을 가지는 여러 변수 출력시 사용   
