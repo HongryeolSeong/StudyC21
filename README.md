@@ -1713,7 +1713,7 @@ fopen()과는 다르게 fclose()는 오류 발생시 EOF(= -1)을 반환한다.
 
 * fgetc
 파일 개방 후 파일 내 데이터 읽어오기   
-![결과11](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "텍스트파일")
+![결과11](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres1")
 ```C
 int main()
 {
@@ -1739,8 +1739,167 @@ int main()
 	fclose(fp);
 }
 ```   
-![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "실행결과")
+![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres2")
 <br>
 
-* fputc
+* fputc   
+파일 개방 후 파일에 데이터 출력하기   
+```C
+int main()
+{
+	FILE* fp;
+	char str[] = "banana";
+	int i;
+
+	// 파일 개방 - 쓰기 모드
+	fp = fopen("b.txt", "w"); // b.txt가 없는 경우 새로 만듦
+	if (fp == NULL)
+	{
+		printf("파일을 만들지 못했습니다.\n");
+		return 1;
+	}
+
+	// 파일에 str 출력
+	i = 0;
+	while (str[i] != '\0') // 널문자를 만날때 까지
+	{
+		fputc(str[i], fp); // b.txt에 str을 출력
+		i++;
+	}
+	fputc('\n', fp); // 마지막에 개행 문자 대입
+	fclose(fp);
+}
+```   
+![결과13](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres3")
+<br>
+
+* 기본적으로 개방되는 표준 입출력 스트림 파일   
+이 파일들을 이용하여 파일 포인터 없이 사용토록 함.   
+** stdin 표준 입력 스트림 키보드     
+** stdout 표준 출력 스트림 모니터   
+** stderr 표준 에러 스트림 모니터   
+```C
+int main()
+{
+	int ch;
+
+	while (1)
+	{
+		// 예제 1. getchar()는 함수 내부적으로 stdin사용
+		ch = getchar(); // 파일 포인터 사용x
+
+		// 예제 2. 파일 포인터로 stdin을 받아 사용하는 fgetc()
+		//ch = fgetc(stdin);
+
+		if (ch == EOF)
+		{
+			break;
+		}
+
+		// 예제1. putchar()는 함수 내부적으로 stdout사용
+		putchar(ch); // 파일 포인터 사용x
+
+		// 예제 2. 파일 포인터로 stdout을 받아 사용하는 fputc()
+		//fputc(ch, stdout);
+	}
+}
+```   
+위와 같이 표준 스트림 파일을 활용하여 따로 파일 포인터를 생성하지 않고   
+키보드로 입력받고 모니터에 출력할 수 있음을 볼 수 있다.   
+<br>
+
+* 텍스트 / 바이너리 파일   
+파일은 텍스트 파일과 바이너리 파일로 분류됨.   
+아스키 코드값에 따라 읽거나 저장 시 -> 텍스트 파일 -> 개방 모드는 기존과 동일 or 't' 붙일 것   
+그 외 -> 바이너리 파일 -> 개방 모드는 기존에 'b'를 붙일 것   
+```C
+int main()
+{
+	FILE* fp;
+	// 10개의 아스키 문자
+	int ary[10] = { 13, 10, 13, 13, 10, 26, 13, 10, 13, 10 };
+	int i, res;
+
+	// 아스키 문자들을 바이너리방식으로 a.txt에 출력
+	fp = fopen("a.txt", "wb");
+	for (i = 0; i < 10; i++)
+	{
+		fputc(ary[i], fp);
+	}
+	fclose(fp);
+
+	// a.txt를 텍스트 파일로 읽어오기
+	fp = fopen("a.txt", "rt");
+	while (1)
+	{
+		res = fgetc(fp);
+		if (res == EOF) break; // 아스키 코드 26 = -1 = EOF = ^Z
+		printf("%4d", res);
+	}
+	fclose(fp);
+}
+```   
+![결과14](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres4")   
+위처럼 파일 형태와 개방 모드가 다를시 26을 아스키 코드로 읽어 EOF로 판단하여   
+26 전에 있는 요소들만 읽게됨   
+<br>
+
+* + 개방모드, 여러가지 파일 함수
+기존 개방 모드에 '+'를 붙이면 프로그램 실행 중에 읽고 쓰고가 가능해짐   
+fseek(FILE * Stream, long offset, int whence); : whence를 기준 offset만큼 파일의 버퍼에서 위치 지시사를 이동   
+** SEEK_SET : 파일의 처음 : 양수만 가능
+** SEEK_CUR : 파일의 현재 위치 : 양수와 음수 가능
+** SEEK_SET : 파일의 끝 : 음수만 가능
+rewind(FILE * Stream); = fseek(FILE * Stream, 0, SEEK_SET);   
+feof(FILE * Stream); : 스트림 파일의 데이터를 모두 읽었는지 판단.   
+*** 파일의 끝 -> 0이 아닌 값
+*** 파일의 끝x -> 0   
+```C
+int main()
+{
+	FILE* fp;
+	char str[20];
+
+	// a -> 파일 끝에 추가
+	// + -> 데이터 기록 중 언제든지 파일 내용 읽을 수 있게함
+	fp = fopen("a.txt", "a+");
+	if (fp == NULL)
+	{
+		printf("파일을 만들지 못했습니다.\n");
+		return 1;
+	}
+
+	while (1)
+	{
+		printf("과일 이름 : ");
+		scanf("%s", str);
+		if (strcmp(str, "end") == 0) // 경우 1. end 입력시 종료
+		{
+			break;
+		}
+		else if (strcmp(str, "list") == 0) // 경우 2. list 입력시 파일 내용 확인
+		{
+			fseek(fp, 0, SEEK_SET); // 버퍼의 위치 지시자를 맨 첨으로 이동
+			while (1)
+			{
+				fgets(str, sizeof(str), fp); // 파일 내용 읽음
+				if (feof(fp)) // 파일 내용 다 읽으면 종료
+				{
+					break;
+				}
+				printf("%s", str);
+			}
+		}
+		else // 경우 3. 과일 입력시
+		{
+			fprintf(fp, "%s\n", str); // 입력한 과일을 파일에 출력
+		}
+	}
+	fclose(fp);
+}
+```   
+<br>
+
+* fgets, fputs   
+파일에 데이터를 한 줄씩("ABCD" + "\n")입력 또는 출력시 사용   
 
