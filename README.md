@@ -1713,7 +1713,7 @@ fopen()과는 다르게 fclose()는 오류 발생시 EOF(= -1)을 반환한다.
 
 * fgetc
 파일 개방 후 파일 내 데이터 읽어오기   
-![결과11](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres1")
+![결과11](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres1.png "fileres1")
 ```C
 int main()
 {
@@ -1739,7 +1739,7 @@ int main()
 	fclose(fp);
 }
 ```   
-![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres2")
+![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres2.png "fileres2")
 <br>
 
 * fputc   
@@ -1770,7 +1770,7 @@ int main()
 	fclose(fp);
 }
 ```   
-![결과13](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres3")
+![결과13](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres3.png "fileres3")
 <br>
 
 * 기본적으로 개방되는 표준 입출력 스트림 파일   
@@ -1839,7 +1839,7 @@ int main()
 	fclose(fp);
 }
 ```   
-![결과14](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "fileres4")   
+![결과14](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres4.png "fileres4")   
 위처럼 파일 형태와 개방 모드가 다를시 26을 아스키 코드로 읽어 EOF로 판단하여   
 26 전에 있는 요소들만 읽게됨   
 <br>
@@ -1902,4 +1902,215 @@ int main()
 
 * fgets, fputs   
 파일에 데이터를 한 줄씩("ABCD" + "\n")입력 또는 출력시 사용   
+함수에 데이터의 크기를 인수로 주므로 메모리 침범 차단   
+![결과15](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres5.png "fileres5")   
+```C
+int main()
+{
+	FILE* ifp, * ofp;
+	char str[80];
+	char* res;
 
+	ifp = fopen("a.txt", "r"); // 입력 받아올 파일의 포인터
+	if (ifp == NULL)
+	{
+		printf("입력 파일을 열지 못했습니다.\n");
+		return 1;
+	}
+
+	ofp = fopen("b.txt", "w");  // 출력할 파일의 포인터
+	while (1) // NULL 만날때까지 반복
+	{
+		//b.txt에 한 줄(str) 출력
+		res = fgets(str, sizeof(str), ifp);
+		if (res == NULL) break;
+		str[strlen(str) - 1] = '\0'; // 한 줄의 끝에 개행 문자를 제거하고 NULL문자 삽입
+		fputs(str, ofp); // 한 줄 출력
+		fputs(" ", ofp); // 한 줄 출력 후 이어서 스페이스 출력
+	}
+
+	fclose(ifp);
+	fclose(ofp);
+}
+```   
+![결과16](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres6.png "fileres6")
+
+* fscanf, fprintf   
+여러 자료형을 가지는 여러 변수 출력시 사용   
+```C
+int main()
+{
+	FILE* ifp, * ofp;
+	char name[20];
+	int kor, eng, math;
+	int total;
+	double avg;
+	int res;
+
+	ifp = fopen("a.txt", "r");
+	if (ifp == NULL)
+	{
+		printf("입력 파일을 열지 못했습니다.\n");
+		return 1;
+	}
+
+	ofp = fopen("b.txt", "w");
+	if (ofp == NULL)
+	{
+		printf("출력 파일을 열지 못했습니다.\n");
+		return 1;
+	}
+
+	while (1)
+	{
+		res = fscanf(ifp, "%s%d%d%d", name, &kor, &eng, &math);
+		if (res == EOF)
+		{
+			break;
+		}
+		total = kor + eng + math;
+		avg = total / 3.0;
+		fprintf(ofp, "%s%5d%7.1lf\n", name, total, avg);
+	}
+
+	fclose(ifp);
+	fclose(ofp);
+}
+```   
+_fscanf를 활용한 18장 퀴즈
+로그인 프로그램_   
+![결과17](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres7.png "fileres7")   
+```C
+struct Login
+{
+	char id[80];
+	int pw;
+};
+
+int main()
+{
+	FILE* fl;
+	struct Login s1;
+	char* id;
+	char temp[80];
+	int pw;
+	int res;
+	int check = 0;
+
+	while (1)
+	{
+		printf("아이디를 입력하시오 : ");
+		gets(temp);
+		id = (char*)malloc(strlen(temp) + 1); // id 동적할당
+		if (id == NULL)
+		{
+			printf("메모리가 부족합니다.");
+			exit(1);
+		}
+		strcpy(id, temp);
+
+		printf("패스워드를 입력하시오 : ");
+		scanf("%d", &pw);
+
+		fl = fopen("password.txt", "r"); // 로그인 정보 담긴 파일 개방
+		if (fl == NULL)
+		{
+			printf("파일이 열리지 않았습니다.\n");
+			return 1;
+		}
+
+		while (1)
+		{
+			// 개방한 파일에서 아이디와 비밀번호 입력받아 s1의 멤버에 각각 대입
+			res = fscanf(fl, "%s%d", s1.id, &s1.pw); 
+			if (res == EOF)
+			{
+				break;
+			}
+
+			if (strcmp(s1.id, id) == 0) // 파일의 id와 키보드로 입력받은 id가 같은 경우
+			{
+				if (s1.pw == pw) // 파일의 pw와 키보드로 입력받은 pw가 같은 경우
+				{
+					printf("로그인 되었습니다.\n");
+					check = 1;
+				}
+				else // 파일의 pw와 키보드로 입력받은 pw가 다른 경우
+				{
+					printf("패스워드가 틀립니다.\n");
+				}
+			}
+			else // 파일의 id와 키보드로 입력받은 id가 다른 경우
+			{
+				printf("아이디가 틀립니다.\n");
+				getchar();
+			}
+		}
+
+		if (check == 1) // 로그인이 된 경우
+		{
+			break;
+		}
+
+		printf("\n");
+
+		fclose(fl); // 로그인 파일 닫기
+		free(id);
+	}
+}
+```   
+![결과18](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres8.png "fileres8")   
+<br>
+
+* 버퍼가 공유되어 발생되는 오류   
+첫 번째 입력의 개행문자가 버퍼에 있다가 두 번째 입력에 공유되어 출력에 오류가 있는 경우이다.   
+```C
+int main()
+{
+	FILE* fp;
+	int age;
+	char name[20];
+
+	fp = fopen("a.txt", "r");
+
+	fscanf(fp, "%d", &age);
+	while (fgetc(fp) != '\n') {} // 밑의 문제를 해결
+	fgets(name, sizeof(name), fp); // 17"\n"에서 개행 문자가 바로 입력 돼버림
+
+	printf("나이 : %d, 이름 : %s", age, name);
+	fclose(fp);
+}
+```   
+<br>
+
+* fread()와 fwrite()   
+입출력할 데이터의 크기와 개수를 인수로 받는 함수   
+-> 대량의 데이터 사용시 유용   
+-> 항상 바이너리 모드로 개방할 것   
+```C
+int main()
+{
+	FILE* afp, * bfp;
+	int num = 10;
+	int res;
+
+	afp = fopen("a.txt", "wt");
+	fprintf(afp, "%d", num);
+
+	bfp = fopen("b.txt", "wb");
+	fwrite(&num, sizeof(num), 1, bfp);
+
+	fclose(afp);
+	fclose(bfp);
+
+	bfp = fopen("b.txt", "rb");
+	fread(&res, sizeof(res), 1, bfp);
+	printf("%d", res);
+
+	fclose(bfp);
+}
+```   
+<br>
+<br>
+
+## Chapter_18 파일 입출력🎯
