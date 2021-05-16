@@ -1981,7 +1981,9 @@ int main()
 	fclose(ofp);
 }
 ```   
-_fscanf를 활용한 18장 퀴즈
+<br>
+
+_fscanf를 활용한 18장 퀴즈   
 로그인 프로그램_   
 ![결과17](https://github.com/HongryeolSeong/StudyC21/blob/main/img/fileres7.png "fileres7")   
 ```C
@@ -2117,4 +2119,28 @@ int main()
 <br>
 <br>
 
-## Chapter_18 파일 입출력🎯
+## Chapter_19 전처리와 분할 컴파일🎯
+
+* 파일을 포함하는 #include   
+<> : 컴파일러가 제공하는 디렉터리에서 검색   
+"" : 소스 파일이 저장된 디렉터리에서 검색   
+   
+```C student.h
+typedef struct
+{
+	int num;
+	char name[20];
+} Student;
+```
+```C main.c
+#include <stdio.h>
+#include "student.h" // 사용자 헤더파일
+
+int main()
+{
+	Student a = { 315, "홍길동" };
+
+	printf("학번 : %d, 이름 : %s\n", a.num, a.name);
+}
+```   
+위처럼 #include를 사용하여 메인 소스에 헤더 파일을 참조할 수 있다.   
