@@ -1680,7 +1680,7 @@ C의 다양한 파일 입출력 함수를 활용하여 일회성 데이터가 �
 * 파일 개방 및 폐쇄
 파일에 데이터 입/출력하기 전 준비 단계.   
 fopen과 fclose 함수를 이용함.   
-[개방 모드 정리](https://bite-sized-learning.tistory.com/318, "모드참고")
+[개방 모드 정리](https://bite-sized-learning.tistory.com/318 "모드참고")
 ```C
 int main()
 {
