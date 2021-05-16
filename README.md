@@ -2125,14 +2125,16 @@ int main()
 <> : 컴파일러가 제공하는 디렉터리에서 검색   
 "" : 소스 파일이 저장된 디렉터리에서 검색   
    
-```C student.h
+```C
+// student.h
 typedef struct
 {
 	int num;
 	char name[20];
 } Student;
 ```
-```C main.c
+```C
+// main.c
 #include <stdio.h>
 #include "student.h" // 사용자 헤더파일
 
