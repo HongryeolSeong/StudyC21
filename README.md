@@ -1844,7 +1844,7 @@ int main()
 26 전에 있는 요소들만 읽게됨   
 <br>
 
-* + 개방모드, 여러가지 파일 함수
+* '+' 개방모드, 여러가지 파일 함수
 기존 개방 모드에 '+'를 붙이면 프로그램 실행 중에 읽고 쓰고가 가능해짐   
 fseek(FILE * Stream, long offset, int whence); : whence를 기준 offset만큼 파일의 버퍼에서 위치 지시사를 이동   
 SEEK_SET : 파일의 처음 : 양수만 가능
