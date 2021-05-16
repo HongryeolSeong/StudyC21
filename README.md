@@ -1680,6 +1680,7 @@ C의 다양한 파일 입출력 함수를 활용하여 일회성 데이터가 �
 * 파일 개방 및 폐쇄
 파일에 데이터 입/출력하기 전 준비 단계.   
 fopen과 fclose 함수를 이용함.   
+[개방모드정리](https://bite-sized-learning.tistory.com/318, "")
 ```C
 int main()
 {
@@ -1703,4 +1704,43 @@ fopen()과는 다르게 fclose()는 오류 발생시 EOF(= -1)을 반환한다.
 
 <br>
 
-* 
+* 스트림 파일과 FILE 구조체   
+스트림 파일은 프로그램과 입출력 장치 사이의 다리 역할   
+1. 스트림 파일은 메모리에 버퍼와 FILE 구조체를 둔다
+2. 버퍼의 상태를 파악하여 FILE 구조체 변수에 저장한다
+3. 프로그램에 FILE 변수의 주소를 반환하여 파일의 정보를 읽거나 입출력이 되게 한다   
+<br>
+
+* fgetc
+파일 개방 후 파일 내 데이터 읽어오기   
+![결과11](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "텍스트파일")
+```C
+int main()
+{
+	FILE* fp;
+	int ch;
+
+	fp = fopen("a.txt", "r"); // 읽기 개방 모드
+	if (fp == NULL)
+	{
+		printf("파일이 열리지 않았습니다.");
+		return 1;
+	}
+
+	while (1)
+	{
+		ch = fgetc(fp); // 파일에서 문자 하나씩 읽어오기
+		if (ch == EOF) // 더 이상 읽을 문자가 없는 경우
+		{
+			break;
+		}
+		putchar(ch); // 버퍼에 저장된 문자를 화면에 출력
+	}
+	fclose(fp);
+}
+```   
+![결과12](https://github.com/HongryeolSeong/StudyC21/blob/main/img/%ED%9A%8C%EB%AC%B8.png "실행결과")
+<br>
+
+* fputc
+
