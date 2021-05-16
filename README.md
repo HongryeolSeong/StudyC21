@@ -1847,12 +1847,12 @@ int main()
 * '+' 개방모드, 여러가지 파일 함수   
 기존 개방 모드에 '+'를 붙이면 프로그램 실행 중에 읽고 쓰고가 가능해짐   
 1. fseek(FILE * Stream, long offset, int whence); : whence를 기준 offset만큼 파일의 버퍼에서 위치 지시사를 이동   
-SEEK_SET : 파일의 처음 : 양수만 가능
-SEEK_CUR : 파일의 현재 위치 : 양수와 음수 가능
-SEEK_SET : 파일의 끝 : 음수만 가능
+SEEK_SET : 파일의 처음 : 양수만 가능   
+SEEK_CUR : 파일의 현재 위치 : 양수와 음수 가능   
+SEEK_SET : 파일의 끝 : 음수만 가능   
 2. rewind(FILE * Stream); = fseek(FILE * Stream, 0, SEEK_SET);   
 3. feof(FILE * Stream); : 스트림 파일의 데이터를 모두 읽었는지 판단.   
-파일의 끝 -> 0이 아닌 값
+파일의 끝 -> 0이 아닌 값   
 파일의 끝x -> 0   
 ```C
 int main()
