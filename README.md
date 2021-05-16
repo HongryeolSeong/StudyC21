@@ -2121,9 +2121,10 @@ int main()
 
 ## Chapter_19 전처리와 분할 컴파일🎯
 
-* 파일을 포함하는 #include   
+* 파일을 포함하는 전처리 지시자 #include   
 <> : 컴파일러가 제공하는 디렉터리에서 검색   
 "" : 소스 파일이 저장된 디렉터리에서 검색   
+"c:\user\a.h"와 같이 다른 디렉터리에서도 검색 가능   
    
 ```C
 // student.h
@@ -2146,3 +2147,107 @@ int main()
 }
 ```   
 위처럼 #include를 사용하여 메인 소스에 헤더 파일을 참조할 수 있다.   
+<br>
+
+* 매크로명을 만드는 전처리 지시자 #define   
+자주 사용하는 복잡한 숫자, 문자열 등을 간단한 단어로 표현   
+대문사 사용할 것   
+```C
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define PI 3.14159
+#define LIMIT 100.0
+#define MSG "passed!"
+#define ERR_PRN printf("허용 범위를 벗어났습니다!\n");
+
+int main()
+{
+	double radius, area;
+
+	printf("반지름을 입력하세요(10 이하) : ");
+	scanf("%lf", &radius);
+	area = PI * radius * radius;
+	if (area > LIMIT) ERR_PRN
+	else printf("원의 면적 : %.2lf (%s)\n", area, MSG);
+}
+```
+<br>
+
+* #define을 사용한 매크로 함수   
+```C
+#include <stdio.h>
+#define SUM(a, b) ((a) + (b))
+#define MUL(a, b) ((a) * (b))
+#define test(a) (a * 10)
+
+int main()
+{
+	int a = 10, b = 20;
+	int x = 30, y = 40;
+	int res;
+
+	printf("a + b = %d\n", SUM(a, b));
+	printf("x + y = %d\n", SUM(x, y));
+	res = 30 / MUL(2, 5);
+	printf("res : %d\n", res);
+	
+	printf("%d\n", test(a + 10)); 
+	// 원래 200 나와야 하지만 110출력
+	// -> #define test(a) ((a) * (10))이 되야함
+}
+```   
+<br>
+
+* 이미 정의된 매크로   
+사용자가 취소하거나 바꿀 수 없다.   
+```C
+#include <stdio.h>
+
+void func(void);
+
+int main()
+{
+	printf("컴파일 날짜와 시간 : %s, %s\n\n", __DATE__, __TIME__);
+	printf("파일명 : %s\n", __FILE__);
+	printf("함수명 : %s\n", __FUNCTION__);
+	printf("행번호 : %d\n", __LINE__);
+
+#line 100 "marco.c" // 행번호를 100번부터 시작, 파일명은 marco.c로 표시
+	func(); 
+
+	return 0;
+}
+
+void func(void)
+{
+	printf("\n");
+	printf("파일명 : %s\n", __FILE__);
+	printf("함수명 : %s\n", __FUNCTION__);
+	printf("행번호 : %d\n", __LINE__); // 요기부터 100번 행
+}
+```   
+<br>
+
+* 매크로 연산자 #, ##   
+'#' : 인수를 문자열로 치환   
+'##' : 두 토큰을 붙여 하나로 만듦   
+```C
+#include <stdio.h>
+#define PRINT_EXPR(x) printf(#x " = %d\n", x)
+#define NAME_CAT(x, y) (x ## y)
+
+int main()
+{
+	int a1, a2;
+
+	NAME_CAT(a, 1) = 10; // a1 = 10;
+	NAME_CAT(a, 2) = 20; // a2 = 20;
+	PRINT_EXPR(a1 + a2); // printf("a1 + a2" " = %d\n", a1 + a2);
+	PRINT_EXPR(a2 - a1); // printf("a2 - a1" " = %d\n", a2 - a1);
+
+	return 0;
+}
+```
+<br>
+
+*
