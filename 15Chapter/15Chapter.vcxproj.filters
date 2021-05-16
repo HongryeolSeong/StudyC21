@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="quiz.c">
+    <ClCompile Include="배열과 포인터 관계.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
