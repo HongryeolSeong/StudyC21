@@ -19,8 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ex19_8.c" />
-    <ClCompile Include="ex19_8_sub.c" />
+    <ClCompile Include="ex19_10.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ex19_10_line.h" />
+    <ClInclude Include="ex19_10_point.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
