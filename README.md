@@ -9,12 +9,13 @@ PKNU C언어 학습 리포지토리
 [프로그램 만들기👉](https://github.com/HongryeolSeong/StudyC21/tree/main/01test "Chapter1")
 <br>
 <br>
-<br>
+
 ## Chapter_2 상수와 데이터 출력🎯
 
 [상수와 데이터 출력👉](https://github.com/HongryeolSeong/StudyC21/tree/main/02Chaapter "Chapter2")
 <br>
 <br>
+
 ## Chapter_3 변수와 데이터 입력🎯
 
 [변수와 데이터 입력👉](https://github.com/HongryeolSeong/StudyC21/tree/main/03Chapter "Chapter3")
@@ -32,19 +33,16 @@ PKNU C언어 학습 리포지토리
 [선택문👉](https://github.com/HongryeolSeong/StudyC21/tree/main/05Chapter "Chapter5")
 <br>
 <br>
-<br>
 
 ## Chapter_6 반복문🎯
 
 [반복문👉](https://github.com/HongryeolSeong/StudyC21/tree/main/06Chapter "Chapter6")
 <br>
 <br>
-<br>
 
 ## Chapter_7 함수🎯
 
 [함수👉](https://github.com/HongryeolSeong/StudyC21/tree/main/07Chapter "Chapter7")
-<br>
 <br>
 <br>
 
@@ -65,12 +63,10 @@ PKNU C언어 학습 리포지토리
 [배열과 포인터👉](https://github.com/HongryeolSeong/StudyC21/tree/main/10Chapter "Chapter10")
 <br>
 <br>
-<br>
 
 ## Chapter_11 문자🎯
 
 [문자👉](https://github.com/HongryeolSeong/StudyC21/tree/main/11Chapter "Chapter11")
-<br>
 <br>
 <br>
 
@@ -89,7 +85,6 @@ PKNU C언어 학습 리포지토리
 ## Chapter_14 다차원 배열과 포인터🎯
 
 [다차원 배열과 포인터👉](https://github.com/HongryeolSeong/StudyC21/tree/main/14Chapter "Chapter14")
-<br>
 <br>
 <br>
 
@@ -120,3 +115,5 @@ PKNU C언어 학습 리포지토리
 ## Chapter_19 전처리와 분할 컴파일🎯
 
 [전처리와 분할 컴파일👉](https://github.com/HongryeolSeong/StudyC21/tree/main/19Chapter "Chapter19") 
+<br>
+<br>
