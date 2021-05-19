@@ -6,7 +6,7 @@ PKNU C언어 학습 리포지토리
 <br>
 ## Chapter_1 프로그램 만들기🎯
 
-기본적인 visual studio 구동 및 프로젝트 생성
+[## Chapter_1 프로그램 만들기🎯](https://github.com/HongryeolSeong/StudyC21/tree/main/01test "Chapter1")
 <br>
 <br>
 <br>
