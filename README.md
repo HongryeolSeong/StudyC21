@@ -23,17 +23,10 @@ PKNU C언어 학습 리포지토리
 
 ## Chapter_4 연산자🎯
 
-산술 연산자 : +, -, *, /, %<br>
-대입 연산자 : =<br>
-증감 연산자 : ++a(전위), a--(후위)<br>
-관계 연산자 : >, >=, <, <=, ==, !=<br>
-논리 연산자 : &&, ||, !<br>
-형변환 연산자 : (자료형)피연산자<br>
-크기 연산자 : sizeof<br>
-복합대입 연산자 : +=, -=, *=, /=, %=<br>
-조건 연산자 : res = (a > b) ? a : b; <span style="color:green">// 삼항 연산자라고도 함</span><br>
+[연산자👉](https://github.com/HongryeolSeong/StudyC21/tree/main/04Chapter "Chapter4")
 <br>
 <br>
+
 ## Chapter_5 선택문🎯
 
 if (조건식) { 실행문; }<br>
