@@ -17,7 +17,7 @@ PKNU C언어 학습 리포지토리
 <br>
 ## Chapter_3 변수와 데이터 입력🎯
 
-[변수와 데이터 입력👉](https://github.com/HongryeolSeong/StudyC21/new/main/03Chapter "Chapter3")
+[변수와 데이터 입력👉](https://github.com/HongryeolSeong/StudyC21/tree/main/03Chapter "Chapter3")
 <br>
 <br>
 
