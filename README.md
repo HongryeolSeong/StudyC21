@@ -6,15 +6,13 @@ PKNU C언어 학습 리포지토리
 <br>
 ## Chapter_1 프로그램 만들기🎯
 
-[프로그램 만들기🎯](https://github.com/HongryeolSeong/StudyC21/tree/main/01test "Chapter1")
+[프로그램 만들기👉](https://github.com/HongryeolSeong/StudyC21/tree/main/01test "Chapter1")
 <br>
 <br>
 <br>
 ## Chapter_2 상수와 데이터 출력🎯
 
-출력함수 : printf<br>
-제어문자 : \n 개행, \b 백스페이스, \r 맨앞으로 이동, \a 벨소리<br>
-변환문자 : %d 정수, %lf 실수, %c 문자, %s 문자열, %u 부호없는 10진수<br>
+[상수와 데이터 출력👉](https://github.com/HongryeolSeong/StudyC21/tree/main/02Chaapter "Chapter2")
 <br>
 <br>
 ## Chapter_3 변수와 데이터 입력🎯
