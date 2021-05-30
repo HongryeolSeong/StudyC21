@@ -34,7 +34,6 @@ int main()
 		// TODO : 반복된 번호 입력 안되게 할 것
 		printf("> 회원 번호 : ");
 		scanf("%d", &tnum);
-		//if (tnum < 0) break;
 		if (count == 0) // 맨 처음 음수 입력시
 		{
 			if (tnum < 0) return 0; // 프로그램 종료
@@ -42,8 +41,25 @@ int main()
 		else if (count > 0) // 두번째 이상부터 음수 입력시
 		{
 			if (tnum < 0) break; // 반복문 탈출
+			flag = 0;
+			while (flag == 0)
+			{
+				for (i = 0; i < count; i++)
+				{
+					if (tnum == ary[i]->num)
+					{
+						printf("중복된 회원 번호가 있습니다.\n");
+						printf("> 회원 번호 : ");
+						scanf("%d", &tnum);
+						break;
+					}
+					flag = 1;
+				}
+				i = 0;
+			}
 		}
 		getchar();
+		
 
 		// 회원 이름 입력
 		printf("> 이름 입력 : ");
