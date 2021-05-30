@@ -66,7 +66,7 @@ void Sort_ary(char* pary, int sz)
 	{
 		for (j = i; j > 0; j--)
 		{
-			if (pary[j] < pary[j -1])
+			if (pary[j] < pary[j - 1])
 			{
 				temp = pary[j];
 				pary[j] = pary[j - 1];

@@ -47,8 +47,8 @@ int main()
 	PrintNode(uh);
 	PrintNode(lh);
 
-	SortNode(uh);
-	SortNode(lh);
+	SortNode(uh, szu);
+	SortNode(lh, szl);
 
 	PrintNode(uh);
 	PrintNode(lh);
@@ -96,12 +96,29 @@ Node* RearInsertNode(HeadNode* header, int data)
 }
 
 // 노드 정렬
-void SortNode(HeadNode* header)
+void SortNode(HeadNode* header,int sz)
 {
+	int i;
 	Node* temp;
-	Node* temp2;
-	Node* curr = header->head;
-	while (curr->next != NULL)
+	//Node* temp2;
+
+	for (i = 0; i < sz; i++)
+	{
+		Node* curr = header->head;
+		while (curr->next != NULL)
+		{
+			if (curr->data > curr->next->data)
+			{
+				temp = curr->data;
+				curr->data = curr->next->data;
+				curr->next->data = temp;
+			}
+			curr = curr->next;
+		}
+	}
+	
+
+	/*while (curr->next != NULL)
 	{
 		if (curr == header->head)
 		{
@@ -113,7 +130,7 @@ void SortNode(HeadNode* header)
 				curr->next = temp;
 			}
 		}
-		/*else if (curr != header->head)
+		else if (curr != header->head)
 		{
 			if (curr->data > curr->next->data)
 			{
@@ -123,8 +140,8 @@ void SortNode(HeadNode* header)
 				curr->next = temp;
 				header->head = temp2;
 			}
-		}*/
-	}
+		}
+	}*/
 }
 
 // 전체 출력
