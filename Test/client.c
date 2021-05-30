@@ -10,46 +10,63 @@ typedef struct      // 구조체 선언
 } Fitness;
 
 void total_number(int count);						// 전체 등록 회원 수 반환
-double average_weight(Fitness** pary, int count);		// 평균 체중 반환
+double average_weight(Fitness** pary, int count);	// 평균 체중 반환
 int max_weight(Fitness** pary, int count);			// 최대 체중 회원의 index 반환
 void print_info(Fitness** pary, int index);			// 회원 정보 출력
 void free_ary(Fitness** pary, int count);			// 동적 할당 영역 해제
 
 int main()
 {
-	int i = 0;
-	int count;
-	int tnum;
-	char tname[80];
-	double tw;
-	double avg;
-	int index;
+	int i;
+	int count = 0;									// 총 회원 수
+	int tnum;										// 회원 번호 임시 변수
+	int flag = 0;
+	char tname[80];									// 회원 이름 임시 배열
+	double tw;										// 회원 체중 임시 변수
+	double avg;										// 전체 회원의 평균 체중
+	int index;										// 회원 정보가 담긴 배열의 인덱스
 
 	Fitness* ary[100];								// 포인터 배열 선언
 
 	while (1)
 	{
+		// 회원 번호 입력
+		// TODO : 반복된 번호 입력 안되게 할 것
 		printf("> 회원 번호 : ");
 		scanf("%d", &tnum);
-		if (tnum < 0) break;
+		//if (tnum < 0) break;
+		if (count == 0) // 맨 처음 음수 입력시
+		{
+			if (tnum < 0) return 0; // 프로그램 종료
+		}
+		else if (count > 0) // 두번째 이상부터 음수 입력시
+		{
+			if (tnum < 0) break; // 반복문 탈출
+		}
 		getchar();
 
+		// 회원 이름 입력
 		printf("> 이름 입력 : ");
 		gets(tname);
 
+		// 회원 체중 입력
 		printf("> 체중 입력 : ");
 		scanf("%lf", &tw);
-		getchar();
+		while ((tw < 0) || (tw > 560)) // 정확한 몸무게 입력 유도
+		{
+			printf("몸무게는 1~560사이 숫자를 입력하세요.\n");
+			printf("> 체중 입력 : ");
+			scanf("%lf", &tw);
+		}
 
 		// 동적 할당을 통한 멤버 변수들의 heap영역 저장
-		ary[i] = (int*)malloc(sizeof(tnum) +(strlen(tname) + 1) + sizeof(tw));
-		ary[i]->num = tnum;
-		strcpy(ary[i]->name, tname);
-		ary[i]->weight = tw;
+		ary[count] = (int*)malloc(sizeof(tnum) +(strlen(tname) + 1) + sizeof(tw));
+		ary[count]->num = tnum;
+		strcpy(ary[count]->name, tname);
+		ary[count]->weight = tw;
 
-		i++;
+		count++;
 	}
-	count = i;
 
 	total_number(count);				// 총 회원수 출력
 	avg = average_weight(ary, count);	// 평균 체중 출력
