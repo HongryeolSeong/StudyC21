@@ -41,7 +41,7 @@ int main()
 		else if (count > 0) // 두번째 이상부터 음수 입력시
 		{
 			if (tnum < 0) break; // 반복문 탈출
-			flag = 0;
+			/*flag = 0;
 			while (flag == 0)
 			{
 				for (i = 0; i < count; i++)
@@ -56,7 +56,7 @@ int main()
 					flag = 1;
 				}
 				i = 0;
-			}
+			}*/
 		}
 		getchar();
 		
