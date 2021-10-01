@@ -94,6 +94,7 @@ struct vision exchange(struct vision robot) { 교체 실행문; }
 struct score
 {
 	int kor;
+	int eng;
 	int math;
 };
 
