@@ -32,7 +32,7 @@ void swap_ptr(char** ppa, char** ppb) { swap 실행문; }
 * '배열' 주소와 배열 '요소'의 주소   
 int ary[5]의 경우   
 ary + 1 => 1234 + (1 * sizeof(ary[0])) => 1234 + (1 * 4) => 1238   
-ary + 1 => 1234 + (1 * sizeof(ary)) => 1234 + (1 * 20) => 1254   
+&ary + 1 => 1234 + (1 * sizeof(ary)) => 1234 + (1 * 20) => 1254   
 <br>
    
 * 2차원 배열의 경우   
